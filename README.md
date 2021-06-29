@@ -1,6 +1,6 @@
 # Apress Source Code
 
-This repository accompanies [*Test-Driven Development in Swift: Compile Better Code with XCTest and TDD*](https://www.apress.com/9781484270011) by Gio Lodi(Apress, 2021).
+This repository accompanies [*Test-Driven Development in Swift: Compile Better Code with XCTest and TDD*](https://www.apress.com/9781484270011) by [Gio Lodi](https://mokacoding.com) (Apress, 2021).
 
 [comment]: #cover
 ![Cover image](./9781484270011.jpg)
