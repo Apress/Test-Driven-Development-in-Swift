@@ -1,0 +1,58 @@
+#!/bin/sh
+# See https://github.com/yusuke024/xcsort/blob/34cd6bdb378f21412cfc96b32ef339437e5f0e02/xcsort
+
+set -e
+
+if [[ $# -gt 1 ]]
+then
+    echo "Not support"
+    exit 1
+fi
+
+# If your .xcodeproj file doesn't live immediately under SRCROOT or has a different name change the line below
+DEFAULT_PROJECT_FILE_PATH="${SRCROOT}/${PROJECT_NAME}.xcodeproj/project.pbxproj"
+PROJECT_FILE_PATH=${1:-"$DEFAULT_PROJECT_FILE_PATH"}
+TEMP_FILE_PATH=$(mktemp "${TMPDIR:-/tmp}/xc.$$.XXXXXXXXXX")
+
+if [[ ! -f $PROJECT_FILE_PATH ]]
+then
+    echo "Cannot read $PROJECT_FILE_PATH"
+    exit 1
+fi
+
+sort_range() {
+    while read -r
+    do
+        printf "%s\n" "$REPLY"
+        if [[ $REPLY =~ $1 ]]
+        then
+            declare -a buf
+            while read -r && [[ ! $REPLY =~ $2 ]]
+            do
+                buf+=("$REPLY")
+            done
+            for line in "${buf[@]}"
+            do
+                printf "%s\n" "$line"
+            done | sort -k $3,$3 # To use case-insensitive sort, add `-f` option to `sort` command
+            unset buf
+            printf "%s\n" "$REPLY"
+        fi
+    done
+}
+
+cat $PROJECT_FILE_PATH | \
+sort_range "files = \(" "\);" 3  | \
+# This sorts the project structure
+sort_range "children = \(" "\);" 3 | \
+cat > $TEMP_FILE_PATH
+
+
+if (( $(diff -u "$TEMP_FILE_PATH" "$PROJECT_FILE_PATH" | wc -c) > 0 ))
+then
+    mv -f "$TEMP_FILE_PATH" "$PROJECT_FILE_PATH"
+else
+    rm "$TEMP_FILE_PATH"
+fi
+
+exit 0
