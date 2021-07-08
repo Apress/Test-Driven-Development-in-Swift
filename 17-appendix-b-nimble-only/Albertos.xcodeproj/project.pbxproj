@@ -1,0 +1,1525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F28631525A8E364004A579C /* HippoPayments.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F28631325A8E364004A579C /* HippoPayments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F28631825A8E364004A579C /* HippoPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F28631125A8E364004A579C /* HippoPayments.framework */; };
+		3F28631925A8E364004A579C /* HippoPayments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F28631125A8E364004A579C /* HippoPayments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F28632825A8E3BE004A579C /* UIViewController+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28632725A8E3BE004A579C /* UIViewController+Presentation.swift */; };
+		3F28632D25A8E416004A579C /* HippoPaymentsProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28632C25A8E416004A579C /* HippoPaymentsProcessor.swift */; };
+		3F28633225A8E42C004A579C /* HippoPaymentsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28633125A8E42C004A579C /* HippoPaymentsError.swift */; };
+		3F28633725A8E44D004A579C /* HippoPaymentsConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28633625A8E44D004A579C /* HippoPaymentsConfirmationViewController.swift */; };
+		3F28635425A8E886004A579C /* PaymentProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28635325A8E886004A579C /* PaymentProcessing.swift */; };
+		3F28636525A8EABA004A579C /* HippoPaymentsProcessor+PaymentProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28636425A8EABA004A579C /* HippoPaymentsProcessor+PaymentProcessing.swift */; };
+		3F28636D25A8EAF1004A579C /* Order+HippoPayments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28636C25A8EAF1004A579C /* Order+HippoPayments.swift */; };
+		3F28637825A8ECE9004A579C /* PaymentProcessingSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28637725A8ECE9004A579C /* PaymentProcessingSpy.swift */; };
+		3F2863B525AA29A9004A579C /* HippoAnalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2863B325AA29A9004A579C /* HippoAnalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F2863B825AA29A9004A579C /* HippoAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2863B125AA29A9004A579C /* HippoAnalytics.framework */; };
+		3F2863B925AA29A9004A579C /* HippoAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2863B125AA29A9004A579C /* HippoAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F2863C225AA29B9004A579C /* HippoAnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2863C125AA29B9004A579C /* HippoAnalyticsClient.swift */; };
+		3F28645525AA355A004A579C /* PaymentProcessingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28645425AA355A004A579C /* PaymentProcessingProxy.swift */; };
+		3F2864D525AA3E01004A579C /* Alert.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2864D425AA3E01004A579C /* Alert.ViewModel.swift */; };
+		3F2864EF25AA3FC8004A579C /* PaymentProcessingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2864EE25AA3FC8004A579C /* PaymentProcessingStub.swift */; };
+		3F2864F925AA41D5004A579C /* XCTestCase+Timeouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2864F825AA41D5004A579C /* XCTestCase+Timeouts.swift */; };
+		3F4F06CC2563DD3D00D94779 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F06CB2563DD3D00D94779 /* MenuList.swift */; };
+		3F567DFB267BF0B9000A5361 /* MenuFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */; };
+		3F567DFD267BF5A7000A5361 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567DFC267BF5A7000A5361 /* TestError.swift */; };
+		3F50065325A247BE00E25EED /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50065225A247BE00E25EED /* Order.swift */; };
+		3F50065B25A2491300E25EED /* OrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50065A25A2491300E25EED /* OrderTests.swift */; };
+		3F50066325A24B7000E25EED /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50066225A24B7000E25EED /* OrderController.swift */; };
+		3F50066B25A24C2900E25EED /* OrderControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50066A25A24C2900E25EED /* OrderControllerTests.swift */; };
+		3F50067325A24FBA00E25EED /* MenuItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50067225A24FBA00E25EED /* MenuItemDetail.swift */; };
+		3F50068125A2537900E25EED /* MenuItemDetail.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50068025A2537900E25EED /* MenuItemDetail.ViewModel.swift */; };
+		3F50068925A253A400E25EED /* MenuItemDetail.ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50068825A253A400E25EED /* MenuItemDetail.ViewModelTests.swift */; };
+		3F50071525A39A4900E25EED /* MenuFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50071425A39A4900E25EED /* MenuFetcher.swift */; };
+		3F50073B25A4E93D00E25EED /* OrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50073A25A4E93D00E25EED /* OrderButton.swift */; };
+		3F50074325A4EB8B00E25EED /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50074225A4EB8B00E25EED /* Color+Custom.swift */; };
+		3F50074B25A4EE5A00E25EED /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50074A25A4EE5A00E25EED /* OrderDetail.swift */; };
+		3F50076425A4EFFA00E25EED /* OrderDetail.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50076325A4EFFA00E25EED /* OrderDetail.ViewModel.swift */; };
+		3F50076C25A4F10100E25EED /* OrderDetail.ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50076B25A4F10100E25EED /* OrderDetail.ViewModelTests.swift */; };
+		3F50077A25A4F1B700E25EED /* OrderButtonViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50077925A4F1B700E25EED /* OrderButtonViewModelTests.swift */; };
+		3F50079925A4F46D00E25EED /* OrderButton.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50079825A4F46C00E25EED /* OrderButton.ViewModel.swift */; };
+		3F56EDFB2571E16200311F1A /* MenuItemAlternateJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EDFA2571E16200311F1A /* MenuItemAlternateJSONTests.swift */; };
+		3F56EE062571E96B00311F1A /* MenuFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EE052571E96B00311F1A /* MenuFetcherTests.swift */; };
+		3F56EE11257330FF00311F1A /* NetworkFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EE10257330FF00311F1A /* NetworkFetching.swift */; };
+		3F56EE19257331BB00311F1A /* URLSession+NetworkFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EE18257331BB00311F1A /* URLSession+NetworkFetching.swift */; };
+		3F5F70A32681F4610096B7E5 /* NetworkFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F70A22681F4610096B7E5 /* NetworkFetchingStub.swift */; };
+		3F83FFE8259D66770017214F /* MenuRow.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83FFE7259D66770017214F /* MenuRow.ViewModel.swift */; };
+		3F83FFF3259D68050017214F /* MenuList.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F83FFF2259D68050017214F /* MenuList.ViewModel.swift */; };
+		3FC9D8B12562389E00BF115D /* AlbertosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8B02562389E00BF115D /* AlbertosApp.swift */; };
+		3FC9D8B52562389F00BF115D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC9D8B42562389F00BF115D /* Assets.xcassets */; };
+		3FC9D8B82562389F00BF115D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC9D8B72562389F00BF115D /* Preview Assets.xcassets */; };
+		3FC9D8CE256238A000BF115D /* AlbertosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8CD256238A000BF115D /* AlbertosUITests.swift */; };
+		3FC9D8DD2562397500BF115D /* MenuGroupingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8DC2562397500BF115D /* MenuGroupingTests.swift */; };
+		3FC9D8E825623AB500BF115D /* MenuGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8E725623AB500BF115D /* MenuGrouping.swift */; };
+		3FC9D8ED25623AD900BF115D /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8EC25623AD900BF115D /* MenuItem.swift */; };
+		3FC9D8F225623AE600BF115D /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8F125623AE600BF115D /* MenuSection.swift */; };
+		3FC9D8F7256244DD00BF115D /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC9D8F6256244DD00BF115D /* Collection+Safe.swift */; };
+		3FD26B4425AF830900DA7826 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 3FD26B4325AF830900DA7826 /* Nimble */; };
+		3FE010D825AB8B6D00D02C2E /* OrderStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE010D725AB8B6D00D02C2E /* OrderStoring.swift */; };
+		3FE010E525AB8C1C00D02C2E /* UserDefaults+OrderStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE010E425AB8C1C00D02C2E /* UserDefaults+OrderStoring.swift */; };
+		3FE0114325AB937400D02C2E /* OrderStoringFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0114225AB937400D02C2E /* OrderStoringFake.swift */; };
+		3FE0120225ACCB1200D02C2E /* PaymentProcessingDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0120125ACCB1200D02C2E /* PaymentProcessingDummy.swift */; };
+		3FE48B3E25C7374E00A46560 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE48B3D25C7374E00A46560 /* TestError.swift */; };
+		3FF61B47257096E0003953C6 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF61B46257096E0003953C6 /* MenuItemTests.swift */; };
+		3FF61B572571DBEA003953C6 /* menu_item.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FF61B562571DBEA003953C6 /* menu_item.json */; };
+		3FF61B5F2571DD29003953C6 /* XCTestCase+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF61B5E2571DD29003953C6 /* XCTestCase+JSON.swift */; };
+		3FF61B672571DE75003953C6 /* MenuItem+JSONFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF61B662571DE75003953C6 /* MenuItem+JSONFixture.swift */; };
+		3FF6741D256A708200BD74AF /* MenuItem+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6741C256A708200BD74AF /* MenuItem+Fixture.swift */; };
+		3FF67425256A777000BD74AF /* MenuSection+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF67424256A777000BD74AF /* MenuSection+Fixture.swift */; };
+		3FF67433256A7B5100BD74AF /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF67432256A7B5100BD74AF /* MenuRow.swift */; };
+		3FF6743B256A7C2200BD74AF /* MenuRow.ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6743A256A7C2200BD74AF /* MenuRow.ViewModelTests.swift */; };
+		3FF67475256CAA5900BD74AF /* MenuList.ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF67474256CAA5900BD74AF /* MenuList.ViewModelTests.swift */; };
+		3FF67486256E800E00BD74AF /* MenuFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF67485256E800E00BD74AF /* MenuFetching.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F28631625A8E364004A579C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FC9D8632562374800BF115D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F28631025A8E364004A579C;
+			remoteInfo = HippoPayments;
+		};
+		3F2863B625AA29A9004A579C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FC9D8632562374800BF115D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F2863B025AA29A9004A579C;
+			remoteInfo = HippoAnalytics;
+		};
+		3FC9D8BF256238A000BF115D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FC9D8632562374800BF115D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FC9D8AC2562389E00BF115D;
+			remoteInfo = Albertos;
+		};
+		3FC9D8CA256238A000BF115D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FC9D8632562374800BF115D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FC9D8AC2562389E00BF115D;
+			remoteInfo = Albertos;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F28631A25A8E364004A579C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F2863B925AA29A9004A579C /* HippoAnalytics.framework in Embed Frameworks */,
+				3F28631925A8E364004A579C /* HippoPayments.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3F28631125A8E364004A579C /* HippoPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HippoPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F28631325A8E364004A579C /* HippoPayments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HippoPayments.h; sourceTree = "<group>"; };
+		3F28631425A8E364004A579C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F28632725A8E3BE004A579C /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentation.swift"; sourceTree = "<group>"; };
+		3F28632C25A8E416004A579C /* HippoPaymentsProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoPaymentsProcessor.swift; sourceTree = "<group>"; };
+		3F28633125A8E42C004A579C /* HippoPaymentsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoPaymentsError.swift; sourceTree = "<group>"; };
+		3F28633625A8E44D004A579C /* HippoPaymentsConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoPaymentsConfirmationViewController.swift; sourceTree = "<group>"; };
+		3F28635325A8E886004A579C /* PaymentProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessing.swift; sourceTree = "<group>"; };
+		3F28636425A8EABA004A579C /* HippoPaymentsProcessor+PaymentProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HippoPaymentsProcessor+PaymentProcessing.swift"; sourceTree = "<group>"; };
+		3F28636C25A8EAF1004A579C /* Order+HippoPayments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+HippoPayments.swift"; sourceTree = "<group>"; };
+		3F28637725A8ECE9004A579C /* PaymentProcessingSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessingSpy.swift; sourceTree = "<group>"; };
+		3F2863B125AA29A9004A579C /* HippoAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HippoAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2863B325AA29A9004A579C /* HippoAnalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HippoAnalytics.h; sourceTree = "<group>"; };
+		3F2863B425AA29A9004A579C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F2863C125AA29B9004A579C /* HippoAnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoAnalyticsClient.swift; sourceTree = "<group>"; };
+		3F28645425AA355A004A579C /* PaymentProcessingProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessingProxy.swift; sourceTree = "<group>"; };
+		3F2864D425AA3E01004A579C /* Alert.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.ViewModel.swift; sourceTree = "<group>"; };
+		3F2864EE25AA3FC8004A579C /* PaymentProcessingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessingStub.swift; sourceTree = "<group>"; };
+		3F2864F825AA41D5004A579C /* XCTestCase+Timeouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Timeouts.swift"; sourceTree = "<group>"; };
+		3F4F06CB2563DD3D00D94779 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
+		3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingStub.swift; sourceTree = "<group>"; };
+		3F567DFC267BF5A7000A5361 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		3F50065225A247BE00E25EED /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		3F50065A25A2491300E25EED /* OrderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTests.swift; sourceTree = "<group>"; };
+		3F50066225A24B7000E25EED /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
+		3F50066A25A24C2900E25EED /* OrderControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderControllerTests.swift; sourceTree = "<group>"; };
+		3F50067225A24FBA00E25EED /* MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetail.swift; sourceTree = "<group>"; };
+		3F50068025A2537900E25EED /* MenuItemDetail.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetail.ViewModel.swift; sourceTree = "<group>"; };
+		3F50068825A253A400E25EED /* MenuItemDetail.ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetail.ViewModelTests.swift; sourceTree = "<group>"; };
+		3F50071425A39A4900E25EED /* MenuFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuFetcher.swift; sourceTree = "<group>"; };
+		3F50073A25A4E93D00E25EED /* OrderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderButton.swift; sourceTree = "<group>"; };
+		3F50074225A4EB8B00E25EED /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
+		3F50074A25A4EE5A00E25EED /* OrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
+		3F50076325A4EFFA00E25EED /* OrderDetail.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.ViewModel.swift; sourceTree = "<group>"; };
+		3F50076B25A4F10100E25EED /* OrderDetail.ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.ViewModelTests.swift; sourceTree = "<group>"; };
+		3F50077925A4F1B700E25EED /* OrderButtonViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderButtonViewModelTests.swift; sourceTree = "<group>"; };
+		3F50079825A4F46C00E25EED /* OrderButton.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderButton.ViewModel.swift; sourceTree = "<group>"; };
+		3F56EDFA2571E16200311F1A /* MenuItemAlternateJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemAlternateJSONTests.swift; sourceTree = "<group>"; };
+		3F56EE052571E96B00311F1A /* MenuFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetcherTests.swift; sourceTree = "<group>"; };
+		3F56EE10257330FF00311F1A /* NetworkFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetching.swift; sourceTree = "<group>"; };
+		3F56EE18257331BB00311F1A /* URLSession+NetworkFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkFetching.swift"; sourceTree = "<group>"; };
+		3F5F70A22681F4610096B7E5 /* NetworkFetchingStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkFetchingStub.swift; sourceTree = "<group>"; };
+		3F83FFE7259D66770017214F /* MenuRow.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.ViewModel.swift; sourceTree = "<group>"; };
+		3F83FFF2259D68050017214F /* MenuList.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.ViewModel.swift; sourceTree = "<group>"; };
+		3FC9D8AD2562389E00BF115D /* Albertos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Albertos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC9D8B02562389E00BF115D /* AlbertosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbertosApp.swift; sourceTree = "<group>"; };
+		3FC9D8B42562389F00BF115D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FC9D8B72562389F00BF115D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3FC9D8B92562389F00BF115D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC9D8BE2562389F00BF115D /* AlbertosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbertosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC9D8C4256238A000BF115D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC9D8C9256238A000BF115D /* AlbertosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbertosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FC9D8CD256238A000BF115D /* AlbertosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbertosUITests.swift; sourceTree = "<group>"; };
+		3FC9D8CF256238A000BF115D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC9D8DC2562397500BF115D /* MenuGroupingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupingTests.swift; sourceTree = "<group>"; };
+		3FC9D8E725623AB500BF115D /* MenuGrouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGrouping.swift; sourceTree = "<group>"; };
+		3FC9D8EC25623AD900BF115D /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		3FC9D8F125623AE600BF115D /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		3FC9D8F6256244DD00BF115D /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
+		3FE010D725AB8B6D00D02C2E /* OrderStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStoring.swift; sourceTree = "<group>"; };
+		3FE010E425AB8C1C00D02C2E /* UserDefaults+OrderStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+OrderStoring.swift"; sourceTree = "<group>"; };
+		3FE0114225AB937400D02C2E /* OrderStoringFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStoringFake.swift; sourceTree = "<group>"; };
+		3FE0120125ACCB1200D02C2E /* PaymentProcessingDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessingDummy.swift; sourceTree = "<group>"; };
+		3FE48B3D25C7374E00A46560 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		3FF61B46257096E0003953C6 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
+		3FF61B562571DBEA003953C6 /* menu_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = menu_item.json; sourceTree = "<group>"; };
+		3FF61B5E2571DD29003953C6 /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
+		3FF61B662571DE75003953C6 /* MenuItem+JSONFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItem+JSONFixture.swift"; sourceTree = "<group>"; };
+		3FF6741C256A708200BD74AF /* MenuItem+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItem+Fixture.swift"; sourceTree = "<group>"; };
+		3FF67424256A777000BD74AF /* MenuSection+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuSection+Fixture.swift"; sourceTree = "<group>"; };
+		3FF67432256A7B5100BD74AF /* MenuRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
+		3FF6743A256A7C2200BD74AF /* MenuRow.ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRow.ViewModelTests.swift; sourceTree = "<group>"; };
+		3FF67474256CAA5900BD74AF /* MenuList.ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.ViewModelTests.swift; sourceTree = "<group>"; };
+		3FF67485256E800E00BD74AF /* MenuFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetching.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F28630E25A8E364004A579C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F2863AE25AA29A9004A579C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8AA2562389E00BF115D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2863B825AA29A9004A579C /* HippoAnalytics.framework in Frameworks */,
+				3F28631825A8E364004A579C /* HippoPayments.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8BB2562389F00BF115D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD26B4425AF830900DA7826 /* Nimble in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8C6256238A000BF115D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F28631225A8E364004A579C /* HippoPayments */ = {
+			isa = PBXGroup;
+			children = (
+				3F28631325A8E364004A579C /* HippoPayments.h */,
+				3F28633625A8E44D004A579C /* HippoPaymentsConfirmationViewController.swift */,
+				3F28633125A8E42C004A579C /* HippoPaymentsError.swift */,
+				3F28632C25A8E416004A579C /* HippoPaymentsProcessor.swift */,
+				3F28631425A8E364004A579C /* Info.plist */,
+				3F28632725A8E3BE004A579C /* UIViewController+Presentation.swift */,
+			);
+			path = HippoPayments;
+			sourceTree = "<group>";
+		};
+		3F2863B225AA29A9004A579C /* HippoAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				3F2863B325AA29A9004A579C /* HippoAnalytics.h */,
+				3F2863C125AA29B9004A579C /* HippoAnalyticsClient.swift */,
+				3F2863B425AA29A9004A579C /* Info.plist */,
+			);
+			path = HippoAnalytics;
+			sourceTree = "<group>";
+		};
+		3FC9D8622562374800BF115D = {
+			isa = PBXGroup;
+			children = (
+				3FC9D8AF2562389E00BF115D /* Albertos */,
+				3FC9D8C1256238A000BF115D /* AlbertosTests */,
+				3FC9D8CC256238A000BF115D /* AlbertosUITests */,
+				3F2863B225AA29A9004A579C /* HippoAnalytics */,
+				3F28631225A8E364004A579C /* HippoPayments */,
+				3FC9D8AE2562389E00BF115D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FC9D8AE2562389E00BF115D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FC9D8AD2562389E00BF115D /* Albertos.app */,
+				3FC9D8BE2562389F00BF115D /* AlbertosTests.xctest */,
+				3FC9D8C9256238A000BF115D /* AlbertosUITests.xctest */,
+				3F2863B125AA29A9004A579C /* HippoAnalytics.framework */,
+				3F28631125A8E364004A579C /* HippoPayments.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FC9D8AF2562389E00BF115D /* Albertos */ = {
+			isa = PBXGroup;
+			children = (
+				3FC9D8B02562389E00BF115D /* AlbertosApp.swift */,
+				3F2864D425AA3E01004A579C /* Alert.ViewModel.swift */,
+				3FC9D8B42562389F00BF115D /* Assets.xcassets */,
+				3F50074225A4EB8B00E25EED /* Color+Custom.swift */,
+				3F28636425A8EABA004A579C /* HippoPaymentsProcessor+PaymentProcessing.swift */,
+				3FC9D8B92562389F00BF115D /* Info.plist */,
+				3F50071425A39A4900E25EED /* MenuFetcher.swift */,
+				3FF67485256E800E00BD74AF /* MenuFetching.swift */,
+				3FC9D8E725623AB500BF115D /* MenuGrouping.swift */,
+				3FC9D8EC25623AD900BF115D /* MenuItem.swift */,
+				3F50068025A2537900E25EED /* MenuItemDetail.ViewModel.swift */,
+				3F50067225A24FBA00E25EED /* MenuItemDetail.swift */,
+				3F83FFF2259D68050017214F /* MenuList.ViewModel.swift */,
+				3F4F06CB2563DD3D00D94779 /* MenuList.swift */,
+				3F83FFE7259D66770017214F /* MenuRow.ViewModel.swift */,
+				3FF67432256A7B5100BD74AF /* MenuRow.swift */,
+				3FC9D8F125623AE600BF115D /* MenuSection.swift */,
+				3F56EE10257330FF00311F1A /* NetworkFetching.swift */,
+				3F28636C25A8EAF1004A579C /* Order+HippoPayments.swift */,
+				3F50065225A247BE00E25EED /* Order.swift */,
+				3F50079825A4F46C00E25EED /* OrderButton.ViewModel.swift */,
+				3F50073A25A4E93D00E25EED /* OrderButton.swift */,
+				3F50066225A24B7000E25EED /* OrderController.swift */,
+				3F50076325A4EFFA00E25EED /* OrderDetail.ViewModel.swift */,
+				3F50074A25A4EE5A00E25EED /* OrderDetail.swift */,
+				3FE010D725AB8B6D00D02C2E /* OrderStoring.swift */,
+				3F28635325A8E886004A579C /* PaymentProcessing.swift */,
+				3F28645425AA355A004A579C /* PaymentProcessingProxy.swift */,
+				3FC9D8B62562389F00BF115D /* Preview Content */,
+				3F56EE18257331BB00311F1A /* URLSession+NetworkFetching.swift */,
+				3FE010E425AB8C1C00D02C2E /* UserDefaults+OrderStoring.swift */,
+			);
+			path = Albertos;
+			sourceTree = "<group>";
+		};
+		3FC9D8B62562389F00BF115D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3FC9D8B72562389F00BF115D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3FC9D8C1256238A000BF115D /* AlbertosTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FC9D8F6256244DD00BF115D /* Collection+Safe.swift */,
+				3FC9D8C4256238A000BF115D /* Info.plist */,
+				3F56EE052571E96B00311F1A /* MenuFetcherTests.swift */,
+				3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */,
+				3FC9D8DC2562397500BF115D /* MenuGroupingTests.swift */,
+				3FF6741C256A708200BD74AF /* MenuItem+Fixture.swift */,
+				3FF61B662571DE75003953C6 /* MenuItem+JSONFixture.swift */,
+				3F56EDFA2571E16200311F1A /* MenuItemAlternateJSONTests.swift */,
+				3F50068825A253A400E25EED /* MenuItemDetail.ViewModelTests.swift */,
+				3FF61B46257096E0003953C6 /* MenuItemTests.swift */,
+				3FF67474256CAA5900BD74AF /* MenuList.ViewModelTests.swift */,
+				3FF6743A256A7C2200BD74AF /* MenuRow.ViewModelTests.swift */,
+				3FF67424256A777000BD74AF /* MenuSection+Fixture.swift */,
+				3F5F70A22681F4610096B7E5 /* NetworkFetchingStub.swift */,
+				3F50077925A4F1B700E25EED /* OrderButtonViewModelTests.swift */,
+				3F50066A25A24C2900E25EED /* OrderControllerTests.swift */,
+				3F50076B25A4F10100E25EED /* OrderDetail.ViewModelTests.swift */,
+				3FE0114225AB937400D02C2E /* OrderStoringFake.swift */,
+				3F50065A25A2491300E25EED /* OrderTests.swift */,
+				3FE0120125ACCB1200D02C2E /* PaymentProcessingDummy.swift */,
+				3F28637725A8ECE9004A579C /* PaymentProcessingSpy.swift */,
+				3F2864EE25AA3FC8004A579C /* PaymentProcessingStub.swift */,
+				3F567DFC267BF5A7000A5361 /* TestError.swift */,
+				3FF61B5E2571DD29003953C6 /* XCTestCase+JSON.swift */,
+				3F2864F825AA41D5004A579C /* XCTestCase+Timeouts.swift */,
+				3FF61B562571DBEA003953C6 /* menu_item.json */,
+			);
+			path = AlbertosTests;
+			sourceTree = "<group>";
+		};
+		3FC9D8CC256238A000BF115D /* AlbertosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3FC9D8CD256238A000BF115D /* AlbertosUITests.swift */,
+				3FC9D8CF256238A000BF115D /* Info.plist */,
+			);
+			path = AlbertosUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3F28630C25A8E364004A579C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F28631525A8E364004A579C /* HippoPayments.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F2863AC25AA29A9004A579C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2863B525AA29A9004A579C /* HippoAnalytics.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3F28631025A8E364004A579C /* HippoPayments */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F28631D25A8E364004A579C /* Build configuration list for PBXNativeTarget "HippoPayments" */;
+			buildPhases = (
+				3F28630C25A8E364004A579C /* Headers */,
+				3F28630D25A8E364004A579C /* Sources */,
+				3F28630E25A8E364004A579C /* Frameworks */,
+				3F28630F25A8E364004A579C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HippoPayments;
+			productName = HippoPayments;
+			productReference = 3F28631125A8E364004A579C /* HippoPayments.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3F2863B025AA29A9004A579C /* HippoAnalytics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F2863BC25AA29A9004A579C /* Build configuration list for PBXNativeTarget "HippoAnalytics" */;
+			buildPhases = (
+				3F2863AC25AA29A9004A579C /* Headers */,
+				3F2863AD25AA29A9004A579C /* Sources */,
+				3F2863AE25AA29A9004A579C /* Frameworks */,
+				3F2863AF25AA29A9004A579C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HippoAnalytics;
+			productName = HippoAnalytics;
+			productReference = 3F2863B125AA29A9004A579C /* HippoAnalytics.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3FC9D8AC2562389E00BF115D /* Albertos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FC9D8D6256238A000BF115D /* Build configuration list for PBXNativeTarget "Albertos" */;
+			buildPhases = (
+				3FC9D8A92562389E00BF115D /* Sources */,
+				3FC9D8AA2562389E00BF115D /* Frameworks */,
+				3FC9D8AB2562389E00BF115D /* Resources */,
+				3FC9D901256248DF00BF115D /* Sort Project Alphabetically */,
+				3F28631A25A8E364004A579C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F28631725A8E364004A579C /* PBXTargetDependency */,
+				3F2863B725AA29A9004A579C /* PBXTargetDependency */,
+			);
+			name = Albertos;
+			productName = Albertos;
+			productReference = 3FC9D8AD2562389E00BF115D /* Albertos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FC9D8BD2562389F00BF115D /* AlbertosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FC9D8D7256238A000BF115D /* Build configuration list for PBXNativeTarget "AlbertosTests" */;
+			buildPhases = (
+				3FC9D8BA2562389F00BF115D /* Sources */,
+				3FC9D8BB2562389F00BF115D /* Frameworks */,
+				3FC9D8BC2562389F00BF115D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FC9D8C0256238A000BF115D /* PBXTargetDependency */,
+			);
+			name = AlbertosTests;
+			packageProductDependencies = (
+				3FD26B4325AF830900DA7826 /* Nimble */,
+			);
+			productName = AlbertosTests;
+			productReference = 3FC9D8BE2562389F00BF115D /* AlbertosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3FC9D8C8256238A000BF115D /* AlbertosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FC9D8D8256238A000BF115D /* Build configuration list for PBXNativeTarget "AlbertosUITests" */;
+			buildPhases = (
+				3FC9D8C5256238A000BF115D /* Sources */,
+				3FC9D8C6256238A000BF115D /* Frameworks */,
+				3FC9D8C7256238A000BF115D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FC9D8CB256238A000BF115D /* PBXTargetDependency */,
+			);
+			name = AlbertosUITests;
+			productName = AlbertosUITests;
+			productReference = 3FC9D8C9256238A000BF115D /* AlbertosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FC9D8632562374800BF115D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					3F28631025A8E364004A579C = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+					3F2863B025AA29A9004A579C = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
+					};
+					3FC9D8AC2562389E00BF115D = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					3FC9D8BD2562389F00BF115D = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 3FC9D8AC2562389E00BF115D;
+					};
+					3FC9D8C8256238A000BF115D = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 3FC9D8AC2562389E00BF115D;
+					};
+				};
+			};
+			buildConfigurationList = 3FC9D8662562374800BF115D /* Build configuration list for PBXProject "Albertos" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3FC9D8622562374800BF115D;
+			packageReferences = (
+				3FD26B4225AF830900DA7826 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
+			productRefGroup = 3FC9D8AE2562389E00BF115D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FC9D8AC2562389E00BF115D /* Albertos */,
+				3FC9D8BD2562389F00BF115D /* AlbertosTests */,
+				3FC9D8C8256238A000BF115D /* AlbertosUITests */,
+				3F28631025A8E364004A579C /* HippoPayments */,
+				3F2863B025AA29A9004A579C /* HippoAnalytics */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F28630F25A8E364004A579C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F2863AF25AA29A9004A579C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8AB2562389E00BF115D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FC9D8B52562389F00BF115D /* Assets.xcassets in Resources */,
+				3FC9D8B82562389F00BF115D /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8BC2562389F00BF115D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF61B572571DBEA003953C6 /* menu_item.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8C7256238A000BF115D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FC9D901256248DF00BF115D /* Sort Project Alphabetically */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Sort Project Alphabetically";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/BuildPhases/xcsort\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F28630D25A8E364004A579C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F28633725A8E44D004A579C /* HippoPaymentsConfirmationViewController.swift in Sources */,
+				3F28633225A8E42C004A579C /* HippoPaymentsError.swift in Sources */,
+				3F28632D25A8E416004A579C /* HippoPaymentsProcessor.swift in Sources */,
+				3F28632825A8E3BE004A579C /* UIViewController+Presentation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F2863AD25AA29A9004A579C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2863C225AA29B9004A579C /* HippoAnalyticsClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8A92562389E00BF115D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FC9D8B12562389E00BF115D /* AlbertosApp.swift in Sources */,
+				3F2864D525AA3E01004A579C /* Alert.ViewModel.swift in Sources */,
+				3F50074325A4EB8B00E25EED /* Color+Custom.swift in Sources */,
+				3F28636525A8EABA004A579C /* HippoPaymentsProcessor+PaymentProcessing.swift in Sources */,
+				3F50071525A39A4900E25EED /* MenuFetcher.swift in Sources */,
+				3FF67486256E800E00BD74AF /* MenuFetching.swift in Sources */,
+				3FC9D8E825623AB500BF115D /* MenuGrouping.swift in Sources */,
+				3FC9D8ED25623AD900BF115D /* MenuItem.swift in Sources */,
+				3F50068125A2537900E25EED /* MenuItemDetail.ViewModel.swift in Sources */,
+				3F50067325A24FBA00E25EED /* MenuItemDetail.swift in Sources */,
+				3F83FFF3259D68050017214F /* MenuList.ViewModel.swift in Sources */,
+				3F4F06CC2563DD3D00D94779 /* MenuList.swift in Sources */,
+				3F83FFE8259D66770017214F /* MenuRow.ViewModel.swift in Sources */,
+				3FF67433256A7B5100BD74AF /* MenuRow.swift in Sources */,
+				3FC9D8F225623AE600BF115D /* MenuSection.swift in Sources */,
+				3F56EE11257330FF00311F1A /* NetworkFetching.swift in Sources */,
+				3F28636D25A8EAF1004A579C /* Order+HippoPayments.swift in Sources */,
+				3F50065325A247BE00E25EED /* Order.swift in Sources */,
+				3F50079925A4F46D00E25EED /* OrderButton.ViewModel.swift in Sources */,
+				3F50073B25A4E93D00E25EED /* OrderButton.swift in Sources */,
+				3F50066325A24B7000E25EED /* OrderController.swift in Sources */,
+				3F50076425A4EFFA00E25EED /* OrderDetail.ViewModel.swift in Sources */,
+				3F50074B25A4EE5A00E25EED /* OrderDetail.swift in Sources */,
+				3FE010D825AB8B6D00D02C2E /* OrderStoring.swift in Sources */,
+				3F28635425A8E886004A579C /* PaymentProcessing.swift in Sources */,
+				3F28645525AA355A004A579C /* PaymentProcessingProxy.swift in Sources */,
+				3F56EE19257331BB00311F1A /* URLSession+NetworkFetching.swift in Sources */,
+				3FE010E525AB8C1C00D02C2E /* UserDefaults+OrderStoring.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8BA2562389F00BF115D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FC9D8F7256244DD00BF115D /* Collection+Safe.swift in Sources */,
+				3F56EE062571E96B00311F1A /* MenuFetcherTests.swift in Sources */,
+				3F567DFB267BF0B9000A5361 /* MenuFetchingStub.swift in Sources */,
+				3FC9D8DD2562397500BF115D /* MenuGroupingTests.swift in Sources */,
+				3FF6741D256A708200BD74AF /* MenuItem+Fixture.swift in Sources */,
+				3FF61B672571DE75003953C6 /* MenuItem+JSONFixture.swift in Sources */,
+				3F56EDFB2571E16200311F1A /* MenuItemAlternateJSONTests.swift in Sources */,
+				3F50068925A253A400E25EED /* MenuItemDetail.ViewModelTests.swift in Sources */,
+				3FF61B47257096E0003953C6 /* MenuItemTests.swift in Sources */,
+				3FF67475256CAA5900BD74AF /* MenuList.ViewModelTests.swift in Sources */,
+				3FF6743B256A7C2200BD74AF /* MenuRow.ViewModelTests.swift in Sources */,
+				3FF67425256A777000BD74AF /* MenuSection+Fixture.swift in Sources */,
+				3F5F70A32681F4610096B7E5 /* NetworkFetchingStub.swift in Sources */,
+				3F50077A25A4F1B700E25EED /* OrderButtonViewModelTests.swift in Sources */,
+				3F50066B25A24C2900E25EED /* OrderControllerTests.swift in Sources */,
+				3F50076C25A4F10100E25EED /* OrderDetail.ViewModelTests.swift in Sources */,
+				3FE0114325AB937400D02C2E /* OrderStoringFake.swift in Sources */,
+				3F50065B25A2491300E25EED /* OrderTests.swift in Sources */,
+				3FE0120225ACCB1200D02C2E /* PaymentProcessingDummy.swift in Sources */,
+				3F28637825A8ECE9004A579C /* PaymentProcessingSpy.swift in Sources */,
+				3F2864EF25AA3FC8004A579C /* PaymentProcessingStub.swift in Sources */,
+				3F567DFD267BF5A7000A5361 /* TestError.swift in Sources */,
+				3FF61B5F2571DD29003953C6 /* XCTestCase+JSON.swift in Sources */,
+				3F2864F925AA41D5004A579C /* XCTestCase+Timeouts.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FC9D8C5256238A000BF115D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FC9D8CE256238A000BF115D /* AlbertosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F28631725A8E364004A579C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F28631025A8E364004A579C /* HippoPayments */;
+			targetProxy = 3F28631625A8E364004A579C /* PBXContainerItemProxy */;
+		};
+		3F2863B725AA29A9004A579C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F2863B025AA29A9004A579C /* HippoAnalytics */;
+			targetProxy = 3F2863B625AA29A9004A579C /* PBXContainerItemProxy */;
+		};
+		3FC9D8C0256238A000BF115D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FC9D8AC2562389E00BF115D /* Albertos */;
+			targetProxy = 3FC9D8BF256238A000BF115D /* PBXContainerItemProxy */;
+		};
+		3FC9D8CB256238A000BF115D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FC9D8AC2562389E00BF115D /* Albertos */;
+			targetProxy = 3FC9D8CA256238A000BF115D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3F28631B25A8E364004A579C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = HippoPayments/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tddinswift.HippoPayments;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3F28631C25A8E364004A579C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = HippoPayments/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tddinswift.HippoPayments;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3F2863BA25AA29A9004A579C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = HippoAnalytics/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tddinswift.HippoAnalytics;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3F2863BB25AA29A9004A579C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = HippoAnalytics/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tddinswift.HippoAnalytics;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3FC9D8672562374800BF115D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		3FC9D8682562374800BF115D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Release;
+		};
+		3FC9D8D0256238A000BF115D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"Albertos/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Albertos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokagio.Albertos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FC9D8D1256238A000BF115D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"Albertos/Preview Content\"";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Albertos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokagio.Albertos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FC9D8D2256238A000BF115D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = AlbertosTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokagio.AlbertosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Albertos.app/Albertos";
+			};
+			name = Debug;
+		};
+		3FC9D8D3256238A000BF115D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = AlbertosTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokagio.AlbertosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Albertos.app/Albertos";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FC9D8D4256238A000BF115D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = AlbertosUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokagio.AlbertosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Albertos;
+			};
+			name = Debug;
+		};
+		3FC9D8D5256238A000BF115D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = AlbertosUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mokagio.AlbertosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Albertos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FC9D8662562374800BF115D /* Build configuration list for PBXProject "Albertos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FC9D8672562374800BF115D /* Debug */,
+				3FC9D8682562374800BF115D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FC9D8D6256238A000BF115D /* Build configuration list for PBXNativeTarget "Albertos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FC9D8D0256238A000BF115D /* Debug */,
+				3FC9D8D1256238A000BF115D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FC9D8D7256238A000BF115D /* Build configuration list for PBXNativeTarget "AlbertosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FC9D8D2256238A000BF115D /* Debug */,
+				3FC9D8D3256238A000BF115D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FC9D8D8256238A000BF115D /* Build configuration list for PBXNativeTarget "AlbertosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FC9D8D4256238A000BF115D /* Debug */,
+				3FC9D8D5256238A000BF115D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F2863BC25AA29A9004A579C /* Build configuration list for PBXNativeTarget "HippoAnalytics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F2863BA25AA29A9004A579C /* Debug */,
+				3F2863BB25AA29A9004A579C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F28631D25A8E364004A579C /* Build configuration list for PBXNativeTarget "HippoPayments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F28631B25A8E364004A579C /* Debug */,
+				3F28631C25A8E364004A579C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3FD26B4225AF830900DA7826 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FD26B4325AF830900DA7826 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3FD26B4225AF830900DA7826 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3FC9D8632562374800BF115D /* Project object */;
+}
