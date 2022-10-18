@@ -19,12 +19,20 @@ class OrderButtonViewModelTests: XCTestCase {
         XCTAssertEqual(sut.text, "Your Order $3.30")
     }
     
+    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak!", file: file, line: line)
+        }
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (OrderButton.ViewModel, OrderController) {
         let orderController = OrderController()
         let sut = OrderButton.ViewModel(orderController: orderController)
      
+        trackForMemoryLeaks(orderController, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
         
         return (sut, orderController)
     }
