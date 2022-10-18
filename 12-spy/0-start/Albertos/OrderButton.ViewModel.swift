@@ -10,8 +10,8 @@ extension OrderButton {
 
         init(orderController: OrderController) {
             orderController.$order
-                .sink { order in
-                    self.text = order.items.isEmpty ? "Your Order" : "Your Order $\(String(format: "%.2f", order.total))"
+                .sink { [weak self] order in
+                    self?.text = order.items.isEmpty ? "Your Order" : "Your Order $\(String(format: "%.2f", order.total))"
                 }
                 .store(in: &cancellables)
         }
