@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,8 +27,6 @@
 		3F2864EF25AA3FC8004A579C /* PaymentProcessingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2864EE25AA3FC8004A579C /* PaymentProcessingStub.swift */; };
 		3F2864F925AA41D5004A579C /* XCTestCase+Timeouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2864F825AA41D5004A579C /* XCTestCase+Timeouts.swift */; };
 		3F4F06CC2563DD3D00D94779 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F06CB2563DD3D00D94779 /* MenuList.swift */; };
-		3F567DFB267BF0B9000A5361 /* MenuFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */; };
-		3F567DFD267BF5A7000A5361 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567DFC267BF5A7000A5361 /* TestError.swift */; };
 		3F50065325A247BE00E25EED /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50065225A247BE00E25EED /* Order.swift */; };
 		3F50065B25A2491300E25EED /* OrderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50065A25A2491300E25EED /* OrderTests.swift */; };
 		3F50066325A24B7000E25EED /* OrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50066225A24B7000E25EED /* OrderController.swift */; };
@@ -44,6 +42,8 @@
 		3F50076C25A4F10100E25EED /* OrderDetail.ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50076B25A4F10100E25EED /* OrderDetail.ViewModelTests.swift */; };
 		3F50077A25A4F1B700E25EED /* OrderButtonViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50077925A4F1B700E25EED /* OrderButtonViewModelTests.swift */; };
 		3F50079925A4F46D00E25EED /* OrderButton.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50079825A4F46C00E25EED /* OrderButton.ViewModel.swift */; };
+		3F567DFB267BF0B9000A5361 /* MenuFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */; };
+		3F567DFD267BF5A7000A5361 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F567DFC267BF5A7000A5361 /* TestError.swift */; };
 		3F56EDFB2571E16200311F1A /* MenuItemAlternateJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EDFA2571E16200311F1A /* MenuItemAlternateJSONTests.swift */; };
 		3F56EE062571E96B00311F1A /* MenuFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EE052571E96B00311F1A /* MenuFetcherTests.swift */; };
 		3F56EE11257330FF00311F1A /* NetworkFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EE10257330FF00311F1A /* NetworkFetching.swift */; };
@@ -143,8 +143,6 @@
 		3F2864EE25AA3FC8004A579C /* PaymentProcessingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentProcessingStub.swift; sourceTree = "<group>"; };
 		3F2864F825AA41D5004A579C /* XCTestCase+Timeouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Timeouts.swift"; sourceTree = "<group>"; };
 		3F4F06CB2563DD3D00D94779 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
-		3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingStub.swift; sourceTree = "<group>"; };
-		3F567DFC267BF5A7000A5361 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		3F50065225A247BE00E25EED /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		3F50065A25A2491300E25EED /* OrderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTests.swift; sourceTree = "<group>"; };
 		3F50066225A24B7000E25EED /* OrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderController.swift; sourceTree = "<group>"; };
@@ -160,6 +158,8 @@
 		3F50076B25A4F10100E25EED /* OrderDetail.ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.ViewModelTests.swift; sourceTree = "<group>"; };
 		3F50077925A4F1B700E25EED /* OrderButtonViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderButtonViewModelTests.swift; sourceTree = "<group>"; };
 		3F50079825A4F46C00E25EED /* OrderButton.ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderButton.ViewModel.swift; sourceTree = "<group>"; };
+		3F567DFA267BF0B9000A5361 /* MenuFetchingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingStub.swift; sourceTree = "<group>"; };
+		3F567DFC267BF5A7000A5361 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		3F56EDFA2571E16200311F1A /* MenuItemAlternateJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemAlternateJSONTests.swift; sourceTree = "<group>"; };
 		3F56EE052571E96B00311F1A /* MenuFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetcherTests.swift; sourceTree = "<group>"; };
 		3F56EE10257330FF00311F1A /* NetworkFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetching.swift; sourceTree = "<group>"; };
@@ -585,6 +585,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		3FC9D901256248DF00BF115D /* Sort Project Alphabetically */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1436,6 +1437,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F28631D25A8E364004A579C /* Build configuration list for PBXNativeTarget "HippoPayments" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F28631B25A8E364004A579C /* Debug */,
+				3F28631C25A8E364004A579C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F2863BC25AA29A9004A579C /* Build configuration list for PBXNativeTarget "HippoAnalytics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F2863BA25AA29A9004A579C /* Debug */,
+				3F2863BB25AA29A9004A579C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3FC9D8662562374800BF115D /* Build configuration list for PBXProject "Albertos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1468,24 +1487,6 @@
 			buildConfigurations = (
 				3FC9D8D4256238A000BF115D /* Debug */,
 				3FC9D8D5256238A000BF115D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3F2863BC25AA29A9004A579C /* Build configuration list for PBXNativeTarget "HippoAnalytics" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F2863BA25AA29A9004A579C /* Debug */,
-				3F2863BB25AA29A9004A579C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3F28631D25A8E364004A579C /* Build configuration list for PBXNativeTarget "HippoPayments" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F28631B25A8E364004A579C /* Debug */,
-				3F28631C25A8E364004A579C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
