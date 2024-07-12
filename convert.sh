@@ -51,7 +51,7 @@ DIR=$(dirname $SOURCE)
 
 function convert {
   echo "Converting all $1 into $2..."
-  find "$DIR" -type f -exec sed -i '' "s/$1/$2/g" {} +
+  find "$DIR" -type f -name "*.swift" -exec sed -i '' "s/$1/$2/g" {} +
 }
 
 convert "import XCTest" "import Testing"
