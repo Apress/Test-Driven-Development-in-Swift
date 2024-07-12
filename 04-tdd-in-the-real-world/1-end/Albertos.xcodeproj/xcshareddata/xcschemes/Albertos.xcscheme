@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Albertos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3FC9D8C8256238A000BF115D"
+               BuildableName = "AlbertosUITests.xctest"
+               BlueprintName = "AlbertosUITests"
+               ReferencedContainer = "container:Albertos.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,16 +49,6 @@
                BlueprintIdentifier = "3FC9D8BD2562389F00BF115D"
                BuildableName = "AlbertosTests.xctest"
                BlueprintName = "AlbertosTests"
-               ReferencedContainer = "container:Albertos.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3FC9D8C8256238A000BF115D"
-               BuildableName = "AlbertosUITests.xctest"
-               BlueprintName = "AlbertosUITests"
                ReferencedContainer = "container:Albertos.xcodeproj">
             </BuildableReference>
          </TestableReference>
