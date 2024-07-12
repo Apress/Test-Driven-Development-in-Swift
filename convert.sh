@@ -34,4 +34,28 @@ fi
 
 echo "Running tests before converting..."
 run_tests
+# TODO: Inspect result and fail accordingly
 
+# FIXME: Duplicated form test function
+if [[ -z $WORKSPACE ]]; then
+  if [[ -z $PROJECT ]]; then
+    echo "Please set either PROJECT or WORKSPACE."
+    exit 1
+  fi
+  SOURCE=$PROJECT
+else
+  SOURCE=$WORKSPACE
+fi
+
+DIR=$(dirname $SOURCE)
+
+function convert {
+  echo "Converting all $1 into $2..."
+  find "$DIR" -type f -exec sed -i '' "s/$1/$2/g" {} +
+}
+
+convert "import XCTest" "import Testing"
+
+echo "Running tests after convertion"
+run_tests
+# TODO: Inspect result and fail accordingly
