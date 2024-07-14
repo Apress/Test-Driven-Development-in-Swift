@@ -61,6 +61,7 @@ function convert {
 # Mixed mode:
 convert "import XCTest" 'import XCTest\nimport Testing'
 convert '\(final \)*class \([A-Za-z0-9]*Tests\): XCTestCase {$' 'final class \2 {'
+convert 'XCTAssertEqual(\(.*\), \(.*\))' '#expect(\1 == \2)'
 
 echo "Running tests after convertion"
 run_tests
