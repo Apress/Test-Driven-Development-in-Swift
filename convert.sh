@@ -54,7 +54,12 @@ function convert {
   find "$DIR" -type f -name "*.swift" -exec sed -i '' "s/$1/$2/g" {} +
 }
 
-convert "import XCTest" "import Testing"
+# Strict mode:
+#
+# convert "import XCTest" "import Testing"
+#
+# Mixed mode:
+convert "import XCTest" 'import XCTest\nimport Testing'
 convert '\(final \)*class \([A-Za-z0-9]*Tests\): XCTestCase {$' 'final class \2 {'
 
 echo "Running tests after convertion"
