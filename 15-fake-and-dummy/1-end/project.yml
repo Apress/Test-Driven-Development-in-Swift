@@ -3,9 +3,9 @@ options:
   bundleIdPrefix: com.mokacoding.Albertos
 packages:
   HippoPayments:
-    path: HippoPayments
+    path: ../HippoPayments
   HippoAnalytics:
-    path: HippoAnalytics
+    path: ../HippoAnalytics
 targets:
   Albertos:
     type: application
