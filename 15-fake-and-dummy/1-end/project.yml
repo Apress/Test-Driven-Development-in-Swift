@@ -10,7 +10,7 @@ targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
+    sources: [../Albertos]
     scheme:
       testTargets: [AlbertosTests]
     dependencies:
