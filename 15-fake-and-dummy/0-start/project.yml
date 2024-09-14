@@ -1,0 +1,28 @@
+name: Albertos
+options:
+  bundleIdPrefix: com.mokacoding.Albertos
+packages:
+  HippoPayments:
+    path: ../HippoPayments
+  HippoAnalytics:
+    path: ../HippoAnalytics
+targets:
+  Albertos:
+    type: application
+    platform: iOS
+    sources: [../Albertos]
+    scheme:
+      testTargets: [AlbertosTests]
+    dependencies:
+      - package: HippoPayments
+      - package: HippoAnalytics
+  AlbertosTests:
+    target: Albertos
+    type: bundle.unit-test
+    platform: iOS
+    sources: [AlbertosTests]
+    settings:
+      # No need for code signing in this demo, plus, it's the test target
+      CODE_SIGNING_ALLOWED: NO
+    dependencies:
+      - target: Albertos
