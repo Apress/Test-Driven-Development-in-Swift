@@ -1,0 +1,34 @@
+include:
+  - ../constants.yml
+packages:
+  HippoPayments:
+    path: ../Packages/HippoPayments
+  HippoAnalytics:
+    path: ../Packages/HippoAnalytics
+  Nimble:
+    url: https://github.com/Quick/Nimble
+    from: 9.2.0
+  Quick:
+    url: https://github.com/Quick/Quick
+    from: 3.0.0
+targets:
+  Albertos:
+    type: application
+    platform: iOS
+    sources: [Albertos]
+    scheme:
+      testTargets: [AlbertosTests]
+    dependencies:
+      - package: HippoPayments
+      - package: HippoAnalytics
+  AlbertosTests:
+    target: Albertos
+    type: bundle.unit-test
+    platform: iOS
+    sources: [AlbertosTests]
+    settings:
+      # No need for code signing in this demo, plus, it's the test target
+      CODE_SIGNING_ALLOWED: NO
+    dependencies:
+      - target: Albertos
+      - package: Nimble
