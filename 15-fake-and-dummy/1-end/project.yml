@@ -1,6 +1,5 @@
-name: Albertos
-options:
-  bundleIdPrefix: com.mokacoding.Albertos
+include:
+  - ../../constants.yml
 packages:
   HippoPayments:
     path: ../HippoPayments
