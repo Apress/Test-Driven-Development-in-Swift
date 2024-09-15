@@ -2,9 +2,9 @@ include:
   - ../../constants.yml
 packages:
   HippoPayments:
-    path: ../HippoPayments
+    path: ../../Packages/HippoPayments
   HippoAnalytics:
-    path: ../HippoAnalytics
+    path: ../../Packages/HippoAnalytics
 targets:
   Albertos:
     type: application
