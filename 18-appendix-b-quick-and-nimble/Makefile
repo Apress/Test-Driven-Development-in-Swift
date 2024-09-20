@@ -1,11 +1,4 @@
-DESTINATION := OS=17.5,name=iPhone 15
+include ../constants.mk
 
-test_end:
-	xcodegen generate
-	set -o pipefail && \
-		xcodebuild clean test \
-		-project Albertos.xcodeproj \
-		-scheme Albertos \
-		-destination "${DESTINATION}" \
-		| xcbeautify
-
+test:
+	$(call run_tests, .)
