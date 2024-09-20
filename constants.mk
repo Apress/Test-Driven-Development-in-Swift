@@ -1,5 +1,6 @@
 OS := 18.0
-DEVICE := iPhone 16
+# At the time of writing, GitHub Actions has no iPhone 6 Simulators
+DEVICE := iPhone 15 Pro
 APP_NAME := Albertos
 
 START_FOLDER := 0-start
