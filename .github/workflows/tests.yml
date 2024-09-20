@@ -1,0 +1,21 @@
+name: Run tests on all examples
+
+on:
+  push
+
+jobs:
+  build_and_test:
+    runs-on: macos-14
+    steps:
+      - name: Check Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Test
+        run: |
+          brew install xcodegen
+          brew install xcbeautify
+          cd ./04-tdd-in-the-real-world
+          make
