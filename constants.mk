@@ -1,5 +1,5 @@
-OS := 17.5
-DEVICE := iPhone 15
+OS := 18.0
+DEVICE := iPhone 16
 APP_NAME := Albertos
 
 START_FOLDER := 0-start
