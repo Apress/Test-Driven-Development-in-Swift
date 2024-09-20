@@ -31,4 +31,5 @@ targets:
       CODE_SIGNING_ALLOWED: NO
     dependencies:
       - target: Albertos
+      - package: Quick
       - package: Nimble
