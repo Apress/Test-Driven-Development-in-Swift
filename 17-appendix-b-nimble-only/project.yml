@@ -1,13 +1,11 @@
 include:
   - ../constants.yml
+  - ../quick-and-nimble.yml
 packages:
   HippoPayments:
     path: ../Packages/HippoPayments
   HippoAnalytics:
     path: ../Packages/HippoAnalytics
-  Nimble:
-    url: https://github.com/Quick/Nimble
-    from: 9.2.0
 targets:
   Albertos:
     type: application
