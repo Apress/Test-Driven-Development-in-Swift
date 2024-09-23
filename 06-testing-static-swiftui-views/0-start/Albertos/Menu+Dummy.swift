@@ -1,19 +1,4 @@
-import SwiftUI
-
-@main
-struct AlbertosApp: App {
-
-    var body: some Scene {
-        WindowGroup {
-            NavigationView {
-                MenuList(sections: groupMenuByCategory(menu))
-                    .navigationTitle("Alberto's 🇮🇹")
-            }
-        }
-    }
-}
-
-// In this first iteration the menu is an hard-coded array
+// In this early iteration the menu is an hard-coded array
 let menu = [
     MenuItem(category: "starters", name: "Caprese Salad", spicy: false, price: 3.0),
     MenuItem(category: "starters", name: "Arancini Balls", spicy: false, price: 3.5),
