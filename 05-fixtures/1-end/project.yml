@@ -6,6 +6,9 @@ targets:
     platform: iOS
     sources:
       - ../../04-tdd-in-the-real-world/1-end/Albertos/AlbertosApp.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuList.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuSection.swift
       - Albertos
     scheme:
       testTargets: [AlbertosTests]
