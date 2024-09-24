@@ -5,8 +5,11 @@ targets:
     type: application
     platform: iOS
     sources:
-      - Albertos
       - ../../04-tdd-in-the-real-world/1-end/Albertos/AlbertosApp.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuList.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuSection.swift
+      - Albertos
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:
@@ -14,6 +17,8 @@ targets:
     type: bundle.unit-test
     platform: iOS
     sources:
+      - ../../05-fixtures/1-end/AlbertosTests/MenuGroupingTests.swift
+      - ../../05-fixtures/1-end/AlbertosTests/MenuSection+Fixture.swift
       - AlbertosTests
       - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
     settings:
