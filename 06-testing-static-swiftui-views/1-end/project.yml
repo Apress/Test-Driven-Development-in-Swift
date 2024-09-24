@@ -4,14 +4,19 @@ targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
+    sources:
+      - ../0-start/Albertos/Menu+Dummy.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - Albertos
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
     platform: iOS
-    sources: [AlbertosTests]
+    sources:
+      - AlbertosTests
+      - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO
