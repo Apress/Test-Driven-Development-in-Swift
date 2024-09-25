@@ -15,8 +15,8 @@ targets:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - AlbertosTests
       - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
+      - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO

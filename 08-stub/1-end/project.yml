@@ -22,12 +22,12 @@ targets:
     type: bundle.unit-test
     platform: iOS
     sources:
+      - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
       - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuGroupingTests.swift
       - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuItem+Fixture.swift
       - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuRow.ViewModelTests.swift
       - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuSection+Fixture.swift
       - AlbertosTests
-      - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO
