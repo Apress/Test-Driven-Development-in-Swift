@@ -1,3 +1,3 @@
 include:
   - ../../constants.yml
-  - ../../07-testing-dynamic-swiftui-views/1-end/project.yml
+  - ../../06-testing-static-swiftui-views/1-end/project.yml
