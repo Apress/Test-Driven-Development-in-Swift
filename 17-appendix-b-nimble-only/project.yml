@@ -10,12 +10,40 @@ targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
-    scheme:
-      testTargets: [AlbertosTests]
+    sources:
+      - ../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../06-testing-static-swiftui-views/1-end/Albertos/MenuRow.swift
+      - ../06-testing-static-swiftui-views/1-end/Albertos/MenuSection.swift
+      - ../07-testing-dynamic-swiftui-views/1-end/Albertos/MenuFetching.swift
+      - ../08-stub/1-end/Albertos/MenuList.ViewModel.swift
+      - ../10-networking/1-end/Albertos/MenuFetcher.swift
+      - ../10-networking/1-end/Albertos/NetworkFetching.swift
+      - ../10-networking/1-end/Albertos/URLSession+NetworkFetching.swift
+      - ../11-dependency-injection-with-environment-object/0-start/Albertos/Color+Custom.swift
+      - ../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.swift
+      - ../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.ViewModel.swift
+      - ../12-spy/0-start/Albertos/OrderButton.ViewModel.swift
+      - ../12-spy/1-end/Albertos/AlbertosApp.swift
+      - ../12-spy/1-end/Albertos/HippoPaymentsProcessor+PaymentProcessing.swift
+      - ../12-spy/1-end/Albertos/Order+HippoPayments.swift
+      - ../12-spy/1-end/Albertos/PaymentProcessing.swift
+      - ../12-spy/1-end/Albertos/PaymentProcessingProxy.swift
+      - ../13-testing-view-presentation/1-end/Albertos/Alert.ViewModel.swift
+      - ../13-testing-view-presentation/1-end/Albertos/OrderButton.swift
+      - ../13-testing-view-presentation/1-end/Albertos/OrderDetail.swift
+      - ../14-fixing-bugs-and-changing-code/1-end/Albertos/MenuRow.ViewModel.swift
+      - ../14-fixing-bugs-and-changing-code/1-end/Albertos/OrderDetail.ViewModel.swift
+      - ../15-fake-and-dummy/1-end/Albertos/MenuItem.swift
+      - ../15-fake-and-dummy/1-end/Albertos/MenuList.swift
+      - ../15-fake-and-dummy/1-end/Albertos/Order.swift
+      - ../15-fake-and-dummy/1-end/Albertos/OrderController.swift
+      - ../15-fake-and-dummy/1-end/Albertos/OrderStoring.swift
+      - ../15-fake-and-dummy/1-end/Albertos/UserDefaults+OrderStoring.swift
     dependencies:
       - package: HippoPayments
       - package: HippoAnalytics
+    scheme:
+      testTargets: [AlbertosTests]
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
