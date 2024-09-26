@@ -26,9 +26,6 @@ targets:
       - ../../11-dependency-injection-with-environment-object/1-end/Albertos/MenuList.swift
       - ../../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.swift
       - ../../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.ViewModel.swift
-      - ../../11-dependency-injection-with-environment-object/1-end/Albertos/MenuList.swift
-      - ../../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.swift
-      - ../../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.ViewModel.swift
       - Albertos
     dependencies:
       - package: HippoPayments
