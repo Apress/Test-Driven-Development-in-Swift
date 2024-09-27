@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct MenuItemDetail: View {
-
     @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {

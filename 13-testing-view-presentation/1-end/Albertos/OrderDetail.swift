@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct OrderDetail: View {
-
     @ObservedObject private(set) var viewModel: ViewModel
 
     var body: some View {

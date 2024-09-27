@@ -2,7 +2,6 @@
 import XCTest
 
 class OrderDetailViewModelTests: XCTestCase {
-
     func testWhenOrderIsEmptyShouldNotShowTotalAmount() {
         let viewModel = OrderDetail.ViewModel(orderController: OrderController())
 

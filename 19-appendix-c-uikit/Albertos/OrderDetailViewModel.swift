@@ -2,7 +2,6 @@ import Combine
 import HippoPayments
 
 class OrderDetailViewModel: ObservableObject {
-
     let headerText = "Your Order"
     let menuListItems: [MenuItem]
     let emptyMenuFallbackText = "Add dishes to the order to see them here"
@@ -59,10 +58,10 @@ class OrderDetailViewModel: ObservableObject {
                         message: "The payment was successful. Your food will be with you shortly.",
                         buttonText: "Ok",
                         buttonAction: { [weak self] in
-                            guard let self = self else { return }
+                            guard let self else { return }
 
-                            self.orderController.resetOrder()
-                            self.onAlertDismiss()
+                            orderController.resetOrder()
+                            onAlertDismiss()
                         }
                     )
                 }

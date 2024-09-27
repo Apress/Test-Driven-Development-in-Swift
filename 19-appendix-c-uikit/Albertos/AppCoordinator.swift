@@ -2,7 +2,6 @@ import Combine
 import UIKit
 
 class AppCoordinator: MenuListViewControllerNavigationDelegate, OrderDetailViewControllerDelegate {
-
     let navigationController: UINavigationController
     private let orderController: OrderController
     private let paymentProcessing: PaymentProcessing
@@ -38,7 +37,7 @@ class AppCoordinator: MenuListViewControllerNavigationDelegate, OrderDetailViewC
             .store(in: &cancellables)
 
         orderButton.addAction(
-            UIAction(handler: { [weak self] _ in self?.presentOrderDetail()}),
+            UIAction(handler: { [weak self] _ in self?.presentOrderDetail() }),
             for: .primaryActionTriggered
         )
     }
@@ -52,12 +51,12 @@ class AppCoordinator: MenuListViewControllerNavigationDelegate, OrderDetailViewC
         orderButton.alignSafeAreaBottomAnchor(to: navigationController.view)
     }
 
-    func orderDetailViewControllerCompletedPaymentFlow(_ viewController: OrderDetailViewController) {
+    func orderDetailViewControllerCompletedPaymentFlow(_: OrderDetailViewController) {
         navigationController.dismiss(animated: true, completion: .none)
     }
 
     func menuListViewController(
-        _ viewController: MenuListViewController,
+        _: MenuListViewController,
         didSelectItem item: MenuItem
     ) {
         navigationController.pushViewController(
@@ -69,7 +68,7 @@ class AppCoordinator: MenuListViewControllerNavigationDelegate, OrderDetailViewC
     }
 
     func presentOrderDetail() {
-        let orderDetailViewController =  OrderDetailViewController(
+        let orderDetailViewController = OrderDetailViewController(
             orderController: orderController,
             paymentProcessor: paymentProcessing
         )

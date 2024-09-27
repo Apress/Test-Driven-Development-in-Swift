@@ -4,7 +4,6 @@ import SwiftUI
 //
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 extension Color {
-
     static var crimson: Color { Color(red: 220 / 255.0, green: 20 / 255.0, blue: 20 / 255.0) }
 
     static var tomato: Color { Color(red: 255 / 255.0, green: 99 / 255.0, blue: 71 / 255.0) }

@@ -3,7 +3,6 @@ import Nimble
 import XCTest
 
 class MenuGroupingTests: XCTestCase {
-
     func testMenuWithManyCategoriesReturnsAsManySectionsInReverseAlphabeticalOrder() {
         let menu: [MenuItem] = [
             .fixture(category: "pastas"),
@@ -50,7 +49,7 @@ class MenuGroupingTests: XCTestCase {
     func testMenuWithOneCategoryReturnsOneSection() throws {
         let menu: [MenuItem] = [
             .fixture(category: "pastas", name: "name"),
-            .fixture(category: "pastas", name: "other name")
+            .fixture(category: "pastas", name: "other name"),
         ]
 
         let sections = groupMenuByCategory(menu)

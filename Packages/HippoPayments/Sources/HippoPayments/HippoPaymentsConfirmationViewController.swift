@@ -1,9 +1,8 @@
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #endif
 
 class HippoPaymentsConfirmationViewController: UIViewController {
-
     let dismissButton = UIButton()
     let textLabel = UILabel()
     let container = UIStackView()

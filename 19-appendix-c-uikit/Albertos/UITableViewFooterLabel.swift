@@ -1,7 +1,6 @@
 import UIKit
 
 class UITableViewFooterLabel: UIView {
-
     var text: String? {
         get { label.text }
         set { label.text = newValue }
@@ -28,7 +27,8 @@ class UITableViewFooterLabel: UIView {
         label.fill(self)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("This view has no `.xib` backing it. Use `init` instead.")
     }
 }

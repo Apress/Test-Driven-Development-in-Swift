@@ -7,7 +7,6 @@ import HippoPayments
 // value defined as `PaymentProcessing` because "only struct/enum/class types can conform to
 // protocols".
 class PaymentProcessingProxy: PaymentProcessing, ObservableObject {
-
     private let proxiedProcessor: PaymentProcessing = HippoPaymentsProcessor(apiKey: "abcd")
 
     func process(order: Order) -> AnyPublisher<Void, Error> {

@@ -3,7 +3,6 @@ import Combine
 import XCTest
 
 class MenuListViewModelTests: XCTestCase {
-
     var cancellables = Set<AnyCancellable>()
 
     func testWhenFetchingStartsPublishesEmptyMenu() {

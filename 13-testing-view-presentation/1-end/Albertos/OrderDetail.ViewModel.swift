@@ -3,9 +3,7 @@ import HippoPayments
 import SwiftUI
 
 extension OrderDetail {
-
     class ViewModel: ObservableObject {
-
         let headerText = "Your Order"
         let menuListItems: [MenuItem]
         let emptyMenuFallbackText = "Add dishes to the order to see them here"

@@ -1,7 +1,6 @@
 import UIKit
 
 class MenuListTableViewDataSource: NSObject, UITableViewDataSource {
-
     private var sections: Result<[MenuSection], Error>
     private let cellIdentifier = "cell"
 
@@ -20,18 +19,18 @@ class MenuListTableViewDataSource: NSObject, UITableViewDataSource {
         tableView.reloadData()
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        guard case .success(let sections) = sections else { return 1 }
+    func numberOfSections(in _: UITableView) -> Int {
+        guard case let .success(sections) = sections else { return 1 }
         return sections.count
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard case .success(let sections) = sections else { return .none }
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard case let .success(sections) = sections else { return .none }
         return sections[safe: section]?.category.uppercased()
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard case .success(let sections) = sections else { return 1 }
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard case let .success(sections) = sections else { return 1 }
         return sections[safe: section]?.items.count ?? 1
     }
 
@@ -39,10 +38,10 @@ class MenuListTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
         switch sections {
-        case .failure(let error):
+        case let .failure(error):
             cell.textLabel?.text = "An error occurred"
             cell.detailTextLabel?.text = "\(error.localizedDescription)"
-        case .success(let sections):
+        case let .success(sections):
             guard let item = sections[safe: indexPath.section]?.items[safe: indexPath.row] else {
                 return cell
             }

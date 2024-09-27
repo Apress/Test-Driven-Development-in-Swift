@@ -3,7 +3,6 @@ import Nimble
 import XCTest
 
 class MenuItemDetailViewModelTests: XCTestCase {
-
     func testWhenItemIsInOrderButtonSaysRemove() {
         let item = MenuItem.fixture()
         let orderController = OrderController(orderStoring: OrderStoringFake())
@@ -33,7 +32,7 @@ class MenuItemDetailViewModelTests: XCTestCase {
 
         viewModel.addOrRemoveFromOrder()
 
-        expect(orderController.order.items).toNot(containElementSatisfying({ $0 == item }))
+        expect(orderController.order.items).toNot(containElementSatisfying { $0 == item })
     }
 
     func testWhenItemIsNotInOrderButtonActionAddsIt() {
@@ -43,7 +42,7 @@ class MenuItemDetailViewModelTests: XCTestCase {
 
         viewModel.addOrRemoveFromOrder()
 
-        expect(orderController.order.items).to(containElementSatisfying({ $0 == item }))
+        expect(orderController.order.items).to(containElementSatisfying { $0 == item })
     }
 
     func testNameIsItemName() {

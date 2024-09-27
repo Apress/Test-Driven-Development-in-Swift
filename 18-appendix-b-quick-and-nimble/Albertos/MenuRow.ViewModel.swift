@@ -1,7 +1,5 @@
 extension MenuRow {
-
     struct ViewModel {
-
         let text: String
 
         init(item: MenuItem) {

@@ -1,7 +1,5 @@
 extension MenuItemDetail {
-
     struct ViewModel {
-
         let name: String
         let spicy: String?
         let price: String

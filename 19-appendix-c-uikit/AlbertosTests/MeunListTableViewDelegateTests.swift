@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuListTableViewDelegateTests: XCTestCase {
-
     func testWhenSectionsIsFailureDoesNotCallSelectionCallback() {
         var called = false
         let delegate = MenuListTableViewDelegate(onRowSelected: { _ in called = true })

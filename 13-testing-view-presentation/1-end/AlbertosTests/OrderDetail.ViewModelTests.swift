@@ -2,7 +2,6 @@
 import XCTest
 
 class OrderDetailViewModelTests: XCTestCase {
-
     func testWhenCheckoutButtonPressedStartsPaymentProcessingFlow() {
         // Create an OrderController and add some items to it
         let orderController = OrderController()

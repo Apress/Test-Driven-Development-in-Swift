@@ -1,5 +1,4 @@
 struct MenuRowViewModel {
-
     let text: String
 
     init(item: MenuItem) {

@@ -3,7 +3,6 @@ import HippoPayments
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     let orderController = OrderController()
@@ -18,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         paymentProcessing: paymentProcessing
     )
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(_ scene: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
         guard NSClassFromString("XCTestCase") == nil else { return }
 
         guard let windowScene = scene as? UIWindowScene else { return }

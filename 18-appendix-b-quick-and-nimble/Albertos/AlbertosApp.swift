@@ -2,7 +2,6 @@ import SwiftUI
 
 @main
 struct AlbertosApp: App {
-
     let orderController = OrderController()
     let paymentProcessor = PaymentProcessingProxy()
 

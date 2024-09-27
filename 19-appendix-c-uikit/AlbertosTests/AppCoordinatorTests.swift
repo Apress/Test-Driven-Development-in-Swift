@@ -3,7 +3,6 @@ import Nimble
 import XCTest
 
 class AppCoordinatorTests: XCTestCase {
-
     func testInitialViewControllerIsNavigationWithMenuList() throws {
         let navigationController = UINavigationController()
         let coordinator = makeAppCoordinator(with: navigationController)
@@ -89,7 +88,7 @@ class AppCoordinatorTests: XCTestCase {
     }
 
     private func makeAppCoordinator(with navigationController: UINavigationController) -> AppCoordinator {
-        return AppCoordinator(
+        AppCoordinator(
             orderController: OrderController(orderStoring: OrderStoringFake()),
             paymentProcessing: PaymentProcessingDummy(),
             navigationController: navigationController

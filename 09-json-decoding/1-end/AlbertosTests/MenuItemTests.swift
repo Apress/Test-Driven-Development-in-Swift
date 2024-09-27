@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuItemTests: XCTestCase {
-
     // MARK: Inline example with Triangulation
 
     func testWhenDecodedFromJSONDataHasAllTheInputPropertiesExample1() throws {
@@ -57,6 +56,7 @@ class MenuItemTests: XCTestCase {
     }
 
     // MARK: Simpler check example
+
     // Use this option if your models match the shape of the input JSON.
 
     func testWhenDecodingFromJSONDataDoesNotThrow() throws {

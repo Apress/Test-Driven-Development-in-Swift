@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct MenuList: View {
-
     let viewModel: ViewModel
 
     var body: some View {

@@ -1,7 +1,6 @@
 import Combine
 
 class MenuListViewModel: ObservableObject {
-
     @Published private(set) var sections: Result<[MenuSection], Error> = .success([])
 
     private let menuFetching: MenuFetching
@@ -18,7 +17,7 @@ class MenuListViewModel: ObservableObject {
             .map(menuGrouping)
             .sink(
                 receiveCompletion: { [weak self] completion in
-                    guard case .failure(let error) = completion else { return }
+                    guard case let .failure(error) = completion else { return }
                     self?.sections = .failure(error)
                 },
                 receiveValue: { [weak self] value in

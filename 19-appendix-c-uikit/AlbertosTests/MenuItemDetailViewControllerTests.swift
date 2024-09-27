@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuItemDetailViewControllerTests: XCTestCase {
-
     func testConfiguresViewWithViewModel() {
         let viewModel = MenuItemDetailViewModel(
             item: MenuItem.fixture(),

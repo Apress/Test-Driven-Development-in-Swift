@@ -3,7 +3,6 @@ import Nimble
 import XCTest
 
 class MenuListViewControllerTests: XCTestCase {
-
     func testWhenNewDataArrivesUpdatesTableView() {
         let vc = MenuListViewController(
             menuFetching: MenuFetchingStub(returning: .success([.fixture(name: "a name")]))

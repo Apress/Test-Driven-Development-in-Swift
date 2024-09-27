@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct OrderButton: View {
-
     @ObservedObject private(set) var viewModel: ViewModel
 
     @State private(set) var showingDetail: Bool = false
@@ -11,7 +10,7 @@ struct OrderButton: View {
 
     var body: some View {
         Button {
-            self.showingDetail.toggle()
+            showingDetail.toggle()
         } label: {
             Text(viewModel.text)
                 .font(Font.callout.bold())
@@ -25,7 +24,7 @@ struct OrderButton: View {
                 viewModel: .init(
                     orderController: orderController,
                     paymentProcessor: paymentProcessor,
-                    onAlertDismiss: { self.showingDetail = false }
+                    onAlertDismiss: { showingDetail = false }
                 )
             )
         }

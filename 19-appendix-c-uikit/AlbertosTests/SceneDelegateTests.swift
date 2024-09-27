@@ -1,8 +1,8 @@
-//@testable import Albertos
-//import Nimble
-//import XCTest
+// @testable import Albertos
+// import Nimble
+// import XCTest
 //
-//class SceneDelegateTests: XCTestCase {
+// class SceneDelegateTests: XCTestCase {
 //
 //    // TODO: Need better name
 //    func testShowsMenuDetailViewControllerOnNavigationStack() {
@@ -87,4 +87,4 @@
 //
 //        expect(sceneDelegate.navigationController.presentedViewController).toEventually(beNil())
 //    }
-//}
+// }

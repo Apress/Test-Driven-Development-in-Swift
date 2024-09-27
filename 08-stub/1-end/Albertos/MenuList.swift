@@ -1,12 +1,11 @@
 import SwiftUI
 
 struct MenuList: View {
-
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         switch viewModel.sections {
-        case .success(let sections):
+        case let .success(sections):
             List {
                 ForEach(sections) { section in
                     Section(header: Text(section.category)) {
@@ -16,7 +15,7 @@ struct MenuList: View {
                     }
                 }
             }
-        case .failure(let error):
+        case let .failure(error):
             Text("An error occurred:")
             Text(error.localizedDescription).italic()
         }
