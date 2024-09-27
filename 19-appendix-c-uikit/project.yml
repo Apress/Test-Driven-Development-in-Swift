@@ -10,7 +10,22 @@ targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
+    sources:
+      - ../Packages/CollectionSafe/Sources/Collection+Safe.swift
+      - ../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../06-testing-static-swiftui-views/1-end/Albertos/MenuSection.swift
+      - ../07-testing-dynamic-swiftui-views/1-end/Albertos/MenuFetching.swift
+      - ../10-networking/1-end/Albertos/MenuFetcher.swift
+      - ../10-networking/1-end/Albertos/NetworkFetching.swift
+      - ../10-networking/1-end/Albertos/URLSession+NetworkFetching.swift
+      - ../12-spy/1-end/Albertos/HippoPaymentsProcessor+PaymentProcessing.swift
+      - ../12-spy/1-end/Albertos/PaymentProcessing.swift
+      - ../15-fake-and-dummy/1-end/Albertos/MenuItem.swift
+      - ../15-fake-and-dummy/1-end/Albertos/Order.swift
+      - ../15-fake-and-dummy/1-end/Albertos/OrderController.swift
+      - ../15-fake-and-dummy/1-end/Albertos/OrderStoring.swift
+      - ../15-fake-and-dummy/1-end/Albertos/UserDefaults+OrderStoring.swift
+      - Albertos
     scheme:
       testTargets: [AlbertosTests]
     dependencies:
@@ -35,7 +50,6 @@ targets:
       - ../13-testing-view-presentation/1-end/AlbertosTests/XCTestCase+Timeouts.swift
       - ../15-fake-and-dummy/1-end/AlbertosTests/OrderStoringFake.swift
       - ../15-fake-and-dummy/1-end/AlbertosTests/PaymentProcessingDummy.swift
-      # - ../17-appendix-b-nimble-only/AlbertosTests
       - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
