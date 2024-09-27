@@ -13,6 +13,11 @@ targets:
       - ../../06-testing-static-swiftui-views/1-end/Albertos/MenuRow.swift
       - ../../06-testing-static-swiftui-views/1-end/Albertos/MenuSection.swift
       - Albertos
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:

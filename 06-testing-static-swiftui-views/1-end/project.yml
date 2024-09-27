@@ -8,6 +8,11 @@ targets:
       - ../0-start/Albertos/Menu+Dummy.swift
       - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
       - Albertos
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:

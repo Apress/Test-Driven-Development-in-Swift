@@ -30,6 +30,11 @@ targets:
     dependencies:
       - package: HippoPayments
       - package: HippoAnalytics
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:

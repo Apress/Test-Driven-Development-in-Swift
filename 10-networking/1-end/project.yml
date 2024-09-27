@@ -14,6 +14,11 @@ targets:
       - ../../08-stub/1-end/Albertos/MenuList.swift
       - ../../09-json-decoding/1-end/Albertos/MenuItem.swift
       - Albertos
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:
