@@ -63,6 +63,7 @@ targets:
       - ../13-testing-view-presentation/1-end/AlbertosTests/XCTestCase+Timeouts.swift
       - ../15-fake-and-dummy/1-end/AlbertosTests/OrderStoringFake.swift
       - ../15-fake-and-dummy/1-end/AlbertosTests/PaymentProcessingDummy.swift
+      - ../17-appendix-b-nimble-only/AlbertosTests
       - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
