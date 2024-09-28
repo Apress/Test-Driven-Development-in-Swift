@@ -4,14 +4,39 @@ targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
+    sources:
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../../06-testing-static-swiftui-views/0-start/Albertos/Menu+Dummy.swift
+      - ../../06-testing-static-swiftui-views/1-end/Albertos/MenuRow.ViewModel.swift
+      - ../../06-testing-static-swiftui-views/1-end/Albertos/MenuRow.swift
+      - ../../06-testing-static-swiftui-views/1-end/Albertos/MenuSection.swift
+      - ../../07-testing-dynamic-swiftui-views/1-end/Albertos/AlbertosApp.swift
+      - ../../07-testing-dynamic-swiftui-views/1-end/Albertos/MenuFetching.swift
+      - ../../07-testing-dynamic-swiftui-views/1-end/Albertos/MenuFetchingPlaceholder.swift
+      - ../../08-stub/1-end/Albertos/MenuList.ViewModel.swift
+      - ../../08-stub/1-end/Albertos/MenuList.swift
+      - Albertos
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
     platform: iOS
-    sources: [AlbertosTests]
+    sources:
+      - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
+      - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuGroupingTests.swift
+      - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuItem+Fixture.swift
+      - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuRow.ViewModelTests.swift
+      - ../../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuSection+Fixture.swift
+      - ../../08-stub/1-end/AlbertosTests/MenuFetchingStub.swift
+      - ../../08-stub/1-end/AlbertosTests/MenuList.ViewModelTests.swift
+      - ../../08-stub/1-end/AlbertosTests/TestError.swift
+      - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO

@@ -1,0 +1,11 @@
+.DS_Store
+# If Xcode is setup to use a local derived data folder (recommended), ignore it
+DerivedData
+
+# Ignore xcodeproj because we codegenerate them
+*.xcodeproj
+# Ignore Info.plist because we codegen that, too
+Info.plist
+
+# SwiftPM
+.build

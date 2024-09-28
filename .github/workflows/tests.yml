@@ -1,0 +1,39 @@
+name: Run tests on all examples
+
+on:
+  push
+
+jobs:
+  build_and_test:
+    strategy:
+      matrix:
+        folder:
+          - 04-tdd-in-the-real-world
+          - 05-fixtures
+          - 06-testing-static-swiftui-views
+          - 07-testing-dynamic-swiftui-views
+          - 08-stub
+          - 09-json-decoding
+          - 10-networking
+          - 11-dependency-injection-with-environment-object
+          - 12-spy
+          - 13-testing-view-presentation
+          - 14-fixing-bugs-and-changing-code
+          - 15-fake-and-dummy
+          - 17-appendix-b-nimble-only
+          - 18-appendix-b-quick-and-nimble
+          - 19-appendix-c-uikit
+    runs-on: macos-14
+    steps:
+      - name: Check Xcode version
+        run: /usr/bin/xcodebuild -version
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Test examples ${{ matrix.folder }}
+        run: |
+          brew install xcodegen
+          cd ./${{ matrix.folder }}
+          echo "Currently in $(pwd)"
+          make

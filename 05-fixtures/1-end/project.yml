@@ -4,14 +4,26 @@ targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
+    sources:
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/AlbertosApp.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuList.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../../04-tdd-in-the-real-world/1-end/Albertos/MenuSection.swift
+      - Albertos
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
     platform: iOS
-    sources: [AlbertosTests]
+    sources:
+      - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
+      - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO

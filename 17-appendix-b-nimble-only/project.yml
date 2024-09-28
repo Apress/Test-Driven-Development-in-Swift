@@ -1,28 +1,74 @@
 include:
   - ../constants.yml
+  - ../quick-and-nimble.yml
 packages:
   HippoPayments:
     path: ../Packages/HippoPayments
   HippoAnalytics:
     path: ../Packages/HippoAnalytics
-  Nimble:
-    url: https://github.com/Quick/Nimble
-    from: 9.2.0
 targets:
   Albertos:
     type: application
     platform: iOS
-    sources: [Albertos]
-    scheme:
-      testTargets: [AlbertosTests]
+    sources:
+      - ../04-tdd-in-the-real-world/1-end/Albertos/MenuGrouping.swift
+      - ../06-testing-static-swiftui-views/1-end/Albertos/MenuRow.swift
+      - ../06-testing-static-swiftui-views/1-end/Albertos/MenuSection.swift
+      - ../07-testing-dynamic-swiftui-views/1-end/Albertos/MenuFetching.swift
+      - ../08-stub/1-end/Albertos/MenuList.ViewModel.swift
+      - ../10-networking/1-end/Albertos/MenuFetcher.swift
+      - ../10-networking/1-end/Albertos/NetworkFetching.swift
+      - ../10-networking/1-end/Albertos/URLSession+NetworkFetching.swift
+      - ../11-dependency-injection-with-environment-object/0-start/Albertos/Color+Custom.swift
+      - ../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.swift
+      - ../11-dependency-injection-with-environment-object/1-end/Albertos/MenuItemDetail.ViewModel.swift
+      - ../12-spy/0-start/Albertos/OrderButton.ViewModel.swift
+      - ../12-spy/1-end/Albertos/AlbertosApp.swift
+      - ../12-spy/1-end/Albertos/HippoPaymentsProcessor+PaymentProcessing.swift
+      - ../12-spy/1-end/Albertos/Order+HippoPayments.swift
+      - ../12-spy/1-end/Albertos/PaymentProcessing.swift
+      - ../12-spy/1-end/Albertos/PaymentProcessingProxy.swift
+      - ../13-testing-view-presentation/1-end/Albertos/Alert.ViewModel.swift
+      - ../13-testing-view-presentation/1-end/Albertos/OrderButton.swift
+      - ../13-testing-view-presentation/1-end/Albertos/OrderDetail.swift
+      - ../14-fixing-bugs-and-changing-code/1-end/Albertos/MenuRow.ViewModel.swift
+      - ../14-fixing-bugs-and-changing-code/1-end/Albertos/OrderDetail.ViewModel.swift
+      - ../15-fake-and-dummy/1-end/Albertos/MenuItem.swift
+      - ../15-fake-and-dummy/1-end/Albertos/MenuList.swift
+      - ../15-fake-and-dummy/1-end/Albertos/Order.swift
+      - ../15-fake-and-dummy/1-end/Albertos/OrderController.swift
+      - ../15-fake-and-dummy/1-end/Albertos/OrderStoring.swift
+      - ../15-fake-and-dummy/1-end/Albertos/UserDefaults+OrderStoring.swift
     dependencies:
       - package: HippoPayments
       - package: HippoAnalytics
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
+    scheme:
+      testTargets: [AlbertosTests]
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
     platform: iOS
-    sources: [AlbertosTests]
+    sources:
+      - ../Packages/CollectionSafe/Sources/Collection+Safe.swift
+      - ../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuItem+Fixture.swift
+      - ../06-testing-static-swiftui-views/1-end/AlbertosTests/MenuSection+Fixture.swift
+      - ../08-stub/1-end/AlbertosTests/MenuFetchingStub.swift
+      - ../08-stub/1-end/AlbertosTests/TestError.swift
+      - ../09-json-decoding/1-end/AlbertosTests/MenuItem+JSONFixture.swift
+      - ../09-json-decoding/1-end/AlbertosTests/XCTestCase+JSON.swift
+      - ../09-json-decoding/1-end/AlbertosTests/menu_item.json
+      - ../10-networking/1-end/AlbertosTests/NetworkFetchingStub.swift
+      - ../12-spy/1-end/AlbertosTests/PaymentProcessingSpy.swift
+      - ../13-testing-view-presentation/1-end/AlbertosTests/PaymentProcessingStub.swift
+      - ../13-testing-view-presentation/1-end/AlbertosTests/XCTestCase+Timeouts.swift
+      - ../15-fake-and-dummy/1-end/AlbertosTests/OrderStoringFake.swift
+      - ../15-fake-and-dummy/1-end/AlbertosTests/PaymentProcessingDummy.swift
+      - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO

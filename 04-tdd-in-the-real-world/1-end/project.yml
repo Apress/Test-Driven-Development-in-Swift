@@ -5,13 +5,20 @@ targets:
     type: application
     platform: iOS
     sources: [Albertos]
+    info:
+      path: Albertos/Info.plist
+      properties:
+        UILaunchScreen:
+          UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
     platform: iOS
-    sources: [AlbertosTests]
+    sources:
+      - ../../Packages/CollectionSafe/Sources/Collection+Safe.swift
+      - AlbertosTests
     settings:
       # No need for code signing in this demo, plus, it's the test target
       CODE_SIGNING_ALLOWED: NO
