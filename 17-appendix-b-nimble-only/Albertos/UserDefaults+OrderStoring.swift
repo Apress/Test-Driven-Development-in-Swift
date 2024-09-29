@@ -1,7 +1,6 @@
 import Foundation
 
 extension UserDefaults: OrderStoring {
-
     func getOrder() -> Order {
         guard let data = data(forKey: orderKey), let order = try? JSONDecoder().decode(Order.self, from: data) else {
             let order = Order(items: [])
@@ -19,4 +18,4 @@ extension UserDefaults: OrderStoring {
     }
 }
 
-fileprivate var orderKey = "order"
+private var orderKey = "order"

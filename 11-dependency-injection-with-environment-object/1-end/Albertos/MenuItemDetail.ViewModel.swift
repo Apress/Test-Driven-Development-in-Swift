@@ -1,9 +1,7 @@
 import Combine
 
 extension MenuItemDetail {
-
     class ViewModel: ObservableObject {
-
         let name: String
         let spicy: String?
         let price: String
@@ -25,12 +23,12 @@ extension MenuItemDetail {
 
             self.orderController.$order
                 .sink { [weak self] order in
-                    guard let self = self else { return }
+                    guard let self else { return }
 
                     if (order.items.contains { $0 == self.item }) {
-                        self.addOrRemoveFromOrderButtonText = "Remove from order"
+                        addOrRemoveFromOrderButtonText = "Remove from order"
                     } else {
-                        self.addOrRemoveFromOrderButtonText = "Add to order"
+                        addOrRemoveFromOrderButtonText = "Add to order"
                     }
                 }
                 .store(in: &cancellables)

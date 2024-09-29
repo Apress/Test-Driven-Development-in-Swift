@@ -1,7 +1,6 @@
 import UIKit
 
 class MenuItemDetailViewController: UIViewController {
-
     let containerView = MenuItemDetailView()
 
     private let viewModel: MenuItemDetailViewModel
@@ -19,12 +18,12 @@ class MenuItemDetailViewController: UIViewController {
     }
 
     @available(*, unavailable, message: "Use `init` instead")
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override init(nibName _: String?, bundle _: Bundle?) {
         fatalError("This view controller has no `.xib` backing it. Use `init` instead.")
     }
 
     @available(*, unavailable, message: "Use `init` instead")
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("This view controller has no `.xib` backing it. Use `init` instead.")
     }
 
@@ -40,9 +39,9 @@ class MenuItemDetailViewController: UIViewController {
         containerView.addOrRemoveFromOrderButton.addAction(
             UIAction(
                 handler: { [weak self] _ in
-                    guard let self = self else { return }
-                    self.viewModel.addOrRemoveFromOrder()
-                    self.containerView.configureContent(with: self.viewModel)
+                    guard let self else { return }
+                    viewModel.addOrRemoveFromOrder()
+                    containerView.configureContent(with: viewModel)
                 }
             ),
             for: .primaryActionTriggered

@@ -1,5 +1,4 @@
 class MenuItemDetailViewModel {
-
     let name: String
     let spicy: String?
     let price: String
@@ -21,9 +20,9 @@ class MenuItemDetailViewModel {
         )
 
         if (orderController.order.items.contains { $0 == item }) {
-            self.addOrRemoveFromOrderButtonText = "Remove from order"
+            addOrRemoveFromOrderButtonText = "Remove from order"
         } else {
-            self.addOrRemoveFromOrderButtonText = "Add to order"
+            addOrRemoveFromOrderButtonText = "Add to order"
         }
     }
 
@@ -42,8 +41,8 @@ class MenuItemDetailViewModel {
 
 private func getAddOrRemoveFromOrderButtonText(item: MenuItem, order: Order) -> String {
     if (order.items.contains { $0 == item }) {
-        return "Remove from order"
+        "Remove from order"
     } else {
-        return "Add to order"
+        "Add to order"
     }
 }

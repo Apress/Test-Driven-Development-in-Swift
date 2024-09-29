@@ -1,9 +1,7 @@
 import Combine
 
 extension MenuList {
-
     class ViewModel: ObservableObject {
-
         @Published private(set) var sections: [MenuSection] = []
 
         private var cancellables = Set<AnyCancellable>()

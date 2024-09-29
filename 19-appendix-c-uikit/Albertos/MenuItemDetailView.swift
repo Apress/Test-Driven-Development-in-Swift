@@ -1,11 +1,10 @@
 import UIKit
 
 class MenuItemDetailView: UIStackView {
-
     let nameLabel = UILabel()
     let priceLabel = UILabel()
-    lazy private(set) var spicyLabel = UILabel()
-    let addOrRemoveFromOrderButton: UIButton = UIButton(type: .system)
+    private(set) lazy var spicyLabel = UILabel()
+    let addOrRemoveFromOrderButton: UIButton = .init(type: .system)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,8 +15,8 @@ class MenuItemDetailView: UIStackView {
         spacing = 8
     }
 
-    @available (*, unavailable, message: "This view has no `.xib` backing it. Use `init(frame:)` instead.")
-    required init(coder: NSCoder) {
+    @available(*, unavailable, message: "This view has no `.xib` backing it. Use `init(frame:)` instead.")
+    required init(coder _: NSCoder) {
         fatalError("This view has no `.xib` backing it. Use `init(frame:)` instead.")
     }
 

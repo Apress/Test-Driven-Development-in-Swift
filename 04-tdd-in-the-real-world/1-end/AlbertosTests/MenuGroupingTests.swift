@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuGroupingTests: XCTestCase {
-
     func testMenuWithManyCategoriesReturnsAsManySectionsInReverseAlphabeticalOrder() {
         let menu = [
             MenuItem(category: "pastas", name: "a pasta"),
@@ -22,7 +21,7 @@ class MenuGroupingTests: XCTestCase {
     func testMenuWithOneCategoryReturnsOneSection() throws {
         let menu = [
             MenuItem(category: "pastas", name: "name"),
-            MenuItem(category: "pastas", name: "other name")
+            MenuItem(category: "pastas", name: "other name"),
         ]
 
         let sections = groupMenuByCategory(menu)

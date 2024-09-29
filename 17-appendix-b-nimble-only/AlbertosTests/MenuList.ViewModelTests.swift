@@ -4,7 +4,6 @@ import Nimble
 import XCTest
 
 class MenuListViewModelTests: XCTestCase {
-
     var cancellables = Set<AnyCancellable>()
 
     func testWhenFetchingStartsPublishesEmptyMenu() throws {
@@ -42,7 +41,7 @@ class MenuListViewModelTests: XCTestCase {
             .$sections
             .dropFirst()
             .sink { value in
-                guard case .success(let sections) = value else {
+                guard case let .success(sections) = value else {
                     return XCTFail("Expected a successful Result, got: \(value)")
                 }
 
@@ -71,7 +70,7 @@ class MenuListViewModelTests: XCTestCase {
             .$sections
             .dropFirst()
             .sink { value in
-                guard case .failure(let error) = value else {
+                guard case let .failure(error) = value else {
                     return XCTFail("Expected a failing Result, got: \(value)")
                 }
 

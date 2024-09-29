@@ -4,7 +4,7 @@
 //
 // If you want to verify the failure, uncomment the import of the production module and comment the
 // definition of MenuItem in this file
-//@testable import Albertos
+// @testable import Albertos
 import XCTest
 
 private struct MenuItem: Decodable {
@@ -26,24 +26,23 @@ private struct MenuItem: Decodable {
 }
 
 class MenuItemAlternateJSONTests: XCTestCase {
-
     func testWhenDecodedFromJSONDataHasAllTheInputProperties() throws {
         let json = """
-{
-    "name": "a name",
-    "category": {
-        "name": "a category",
-        "id": 123
-    },
-    "spicy": false,
-    "price": 1.0
-}
-"""
+        {
+            "name": "a name",
+            "category": {
+                "name": "a category",
+                "id": 123
+            },
+            "spicy": false,
+            "price": 1.0
+        }
+        """
         let data = try XCTUnwrap(json.data(using: .utf8))
 
         let item: MenuItem
         do {
-        item = try JSONDecoder().decode(MenuItem.self, from: data)
+            item = try JSONDecoder().decode(MenuItem.self, from: data)
         } catch {
             XCTFail("\(error)")
             return

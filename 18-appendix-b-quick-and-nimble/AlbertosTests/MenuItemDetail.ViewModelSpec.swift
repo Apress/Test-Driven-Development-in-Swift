@@ -3,13 +3,10 @@ import Nimble
 import Quick
 
 class MenuItemDetailViewModelSpec: QuickSpec {
-
     override func spec() {
-
         // Quick lets you organize your test using plain language:
         // "MenuItemDetail.ViewModel, order button, when the item is in the order, says remove from order".
         describe("MenuItemDetail.ViewModel") {
-
             describe("order button") {
                 // It also allow for an efficient grouping of common setup code while still having isolated
                 // tests.
@@ -31,7 +28,7 @@ class MenuItemDetailViewModelSpec: QuickSpec {
                     it("removes the item from the order") {
                         viewModel.addOrRemoveFromOrder()
 
-                        expect(orderController.order.items).toNot(containElementSatisfying({ $0 == item }))
+                        expect(orderController.order.items).toNot(containElementSatisfying { $0 == item })
                     }
                 }
 
@@ -46,7 +43,7 @@ class MenuItemDetailViewModelSpec: QuickSpec {
                     it("adds the item to the order") {
                         viewModel.addOrRemoveFromOrder()
 
-                        expect(orderController.order.items).to(containElementSatisfying({ $0 == item }))
+                        expect(orderController.order.items).to(containElementSatisfying { $0 == item })
                     }
                 }
             }
@@ -55,7 +52,6 @@ class MenuItemDetailViewModelSpec: QuickSpec {
                 // Alternatively, you can replicate the setup code in each example, to avoid
                 // spreading the code affecting each test and keep them compact.
                 context("when the item is in the order") {
-
                     it("says remove from order") {
                         let item = MenuItem.fixture()
                         let orderController = OrderController(orderStoring: OrderStoringFake())
@@ -75,12 +71,11 @@ class MenuItemDetailViewModelSpec: QuickSpec {
 
                         viewModel.addOrRemoveFromOrder()
 
-                        expect(orderController.order.items).toNot(containElementSatisfying({ $0 == item }))
+                        expect(orderController.order.items).toNot(containElementSatisfying { $0 == item })
                     }
                 }
 
                 context("when the item is not in the order") {
-
                     it("says add to order") {
                         let item = MenuItem.fixture()
                         let orderController = OrderController(orderStoring: OrderStoringFake())
@@ -98,7 +93,7 @@ class MenuItemDetailViewModelSpec: QuickSpec {
 
                         viewModel.addOrRemoveFromOrder()
 
-                        expect(orderController.order.items).to(containElementSatisfying({ $0 == item }))
+                        expect(orderController.order.items).to(containElementSatisfying { $0 == item })
                     }
                 }
             }

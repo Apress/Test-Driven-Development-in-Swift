@@ -1,7 +1,6 @@
 import UIKit
 
 extension UIButton {
-
     func applyBigButtonStyle() {
         backgroundColor = .crimson
 
@@ -17,7 +16,6 @@ extension UIButton {
 }
 
 class BigButton: UIButton {
-
     private let padding: CGFloat
 
     override init(frame: CGRect) {
@@ -37,7 +35,8 @@ class BigButton: UIButton {
         layer.cornerRadius = 10
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("This view has no `.xib` backing it. Use `init` instead.")
     }
 

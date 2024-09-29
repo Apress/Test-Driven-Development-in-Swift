@@ -32,7 +32,7 @@ func shell(_ command: String) -> String {
 
 /// Call the fizz-buzz script with a given input and return the script's output.
 func fizzBuzz(_ number: Int) -> String {
-    return shell("./fizz_buzz.swift \(number)")
+    shell("./fizz_buzz.swift \(number)")
 }
 
 /// Check if two input `String`s are equal, printing "PASSED" if true and

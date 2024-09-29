@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuListTableViewDataSourceTests: XCTestCase {
-
     func testWhenViewModelSectionsIsErrorSectionNumberIsOne() {
         let dataSource = MenuListTableViewDataSource()
         let tableView = UITableView(frame: UIScreen.main.bounds)
@@ -23,7 +22,7 @@ class MenuListTableViewDataSourceTests: XCTestCase {
             with: .success(
                 [
                     .fixture(category: "a category"),
-                    .fixture(category: "another category")
+                    .fixture(category: "another category"),
                 ]
             )
         )

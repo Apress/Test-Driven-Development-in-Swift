@@ -1,9 +1,8 @@
 #if canImport(UIKit)
-import UIKit
+    import UIKit
 #endif
 
 public class HippoPaymentsProcessor {
-
     private let apiKey: String
 
     public init(apiKey: String) {
@@ -11,9 +10,9 @@ public class HippoPaymentsProcessor {
     }
 
     public func processPayment(
-        payload: [String: Any],
+        payload _: [String: Any],
         onSuccess: @escaping () -> Void,
-        onFailure: @escaping (HippoPaymentsError) -> Void
+        onFailure _: @escaping (HippoPaymentsError) -> Void
     ) {
         let vc = HippoPaymentsConfirmationViewController()
         vc.onDismiss = onSuccess

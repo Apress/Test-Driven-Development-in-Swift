@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuItemDetailViewTests: XCTestCase {
-
     func testWhenViewModelHasSpicyNilDoesNotAddSpicyLabel() {
         let viewModel = MenuItemDetailViewModel(
             item: .fixture(spicy: false),

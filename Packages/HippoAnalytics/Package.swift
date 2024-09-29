@@ -8,13 +8,15 @@ let package = Package(
     products: [
         .library(
             name: "HippoAnalytics",
-            targets: ["HippoAnalytics"]),
+            targets: ["HippoAnalytics"]
+        ),
     ],
     targets: [
         .target(
             name: "HippoAnalytics"),
         .testTarget(
             name: "HippoAnalyticsTests",
-            dependencies: ["HippoAnalytics"]),
+            dependencies: ["HippoAnalytics"]
+        ),
     ]
 )

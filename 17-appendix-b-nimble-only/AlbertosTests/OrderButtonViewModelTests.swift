@@ -3,7 +3,6 @@ import Nimble
 import XCTest
 
 class OrderButtonViewModelTests: XCTestCase {
-
     func testWhenOrderIsEmptyDoesNotShowTotal() {
         let orderController = OrderController(orderStoring: OrderStoringFake())
         let viewModel = OrderButton.ViewModel(orderController: orderController)
@@ -20,4 +19,3 @@ class OrderButtonViewModelTests: XCTestCase {
         expect(viewModel.text) == "Your Order $3.30"
     }
 }
-

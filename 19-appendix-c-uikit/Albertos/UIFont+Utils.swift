@@ -1,7 +1,6 @@
 import UIKit
 
 extension UIFont {
-
     func adding(_ trait: UIFontDescriptor.SymbolicTraits) -> UIFont {
         guard let fontDescriptor = fontDescriptor.withSymbolicTraits(trait) else {
             return self

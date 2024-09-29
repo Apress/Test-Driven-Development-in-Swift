@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuListViewModelTests: XCTestCase {
-
     func testCallsGivenGroupingFunction() {
         var called = false
         let inputSections = [MenuSection.fixture()]

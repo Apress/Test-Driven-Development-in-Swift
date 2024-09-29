@@ -2,7 +2,6 @@
 import XCTest
 
 class OrderControllerTests: XCTestCase {
-
     func testInitsWithEmptyOrder() {
         let controller = OrderController()
 

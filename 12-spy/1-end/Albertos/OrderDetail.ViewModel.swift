@@ -2,9 +2,7 @@ import Combine
 import HippoPayments
 
 extension OrderDetail {
-
     struct ViewModel {
-
         let headerText = "Your Order"
         let menuListItems: [MenuItem]
         let emptyMenuFallbackText = "Add dishes to the order to see them here"

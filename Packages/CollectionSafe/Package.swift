@@ -8,7 +8,8 @@ let package = Package(
     products: [
         .library(
             name: "CollectionSafe",
-            targets: ["CollectionSafe"]),
+            targets: ["CollectionSafe"]
+        ),
     ],
     targets: [
         .target(

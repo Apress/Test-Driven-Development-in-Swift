@@ -2,7 +2,6 @@ import Combine
 import UIKit
 
 protocol MenuListViewControllerNavigationDelegate: AnyObject {
-
     func menuListViewController(
         _ viewController: MenuListViewController,
         didSelectItem item: MenuItem
@@ -10,35 +9,34 @@ protocol MenuListViewControllerNavigationDelegate: AnyObject {
 }
 
 class MenuListViewController: UIViewController {
-
     let tableView = UITableView()
 
     weak var navigationDelegate: MenuListViewControllerNavigationDelegate?
 
     let viewModel: MenuListViewModel
 
-    lazy private var tableViewDataSource = MenuListTableViewDataSource()
-    lazy private var tableViewDelegate = MenuListTableViewDelegate(
+    private lazy var tableViewDataSource = MenuListTableViewDataSource()
+    private lazy var tableViewDelegate = MenuListTableViewDelegate(
         onRowSelected: { [weak self] in
-            guard let self = self else { return }
-            self.navigationDelegate?.menuListViewController(self, didSelectItem: $0)
+            guard let self else { return }
+            navigationDelegate?.menuListViewController(self, didSelectItem: $0)
         }
     )
 
     private var cancellables = Set<AnyCancellable>()
 
     init(menuFetching: MenuFetching) {
-        self.viewModel = MenuListViewModel(menuFetching: menuFetching)
+        viewModel = MenuListViewModel(menuFetching: menuFetching)
         super.init(nibName: .none, bundle: .none)
     }
 
     @available(*, unavailable, message: "Use `init` instead")
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override init(nibName _: String?, bundle _: Bundle?) {
         fatalError("This view controller has no `.xib` backing it. Use `init` instead.")
     }
 
     @available(*, unavailable, message: "Use `init` instead")
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("This view controller has no `.xib` backing it. Use `init` instead.")
     }
 
@@ -53,10 +51,10 @@ class MenuListViewController: UIViewController {
         viewModel.$sections
             .receive(on: RunLoop.main)
             .sink { [weak self] sections in
-                guard let self = self else { return }
+                guard let self else { return }
 
-                self.tableViewDataSource.reload(self.tableView, with: sections)
-                self.tableViewDelegate.sections = sections
+                tableViewDataSource.reload(tableView, with: sections)
+                tableViewDelegate.sections = sections
             }
             .store(in: &cancellables)
     }

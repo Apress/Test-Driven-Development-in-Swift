@@ -2,7 +2,6 @@
 import Combine
 
 class PaymentProcessingSpy: PaymentProcessing {
-
     private(set) var receivedOrder: Order?
 
     func process(order: Order) -> AnyPublisher<Void, Error> {

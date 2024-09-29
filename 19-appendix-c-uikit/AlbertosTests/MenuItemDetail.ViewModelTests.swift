@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuItemDetailViewModelTests: XCTestCase {
-
     func testWhenItemIsInOrderButtonSaysRemove() {
         let item = MenuItem.fixture()
         let orderController = OrderController(orderStoring: OrderStoringFake())

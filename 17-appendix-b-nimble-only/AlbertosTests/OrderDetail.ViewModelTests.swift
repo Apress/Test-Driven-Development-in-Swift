@@ -3,7 +3,6 @@ import Nimble
 import XCTest
 
 class OrderDetailViewModelTests: XCTestCase {
-
     let alertDismissDummy: () -> Void = {}
 
     func testWhenCheckoutButtonPressedStartsPaymentProcessingFlow() {

@@ -2,7 +2,6 @@
 import XCTest
 
 class MenuItemDetailViewModelTests: XCTestCase {
-
     func testNameIsItemName() {
         XCTAssertEqual(
             MenuItemDetail.ViewModel(item: .fixture(name: "a name")).name,

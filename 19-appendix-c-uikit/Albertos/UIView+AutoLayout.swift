@@ -1,7 +1,6 @@
 import UIKit
 
 extension UIView {
-
     func set(
         _ attribute: NSLayoutConstraint.Attribute,
         relatedBy relation: NSLayoutConstraint.Relation = .equal,
@@ -15,7 +14,7 @@ extension UIView {
         relatedBy relation: NSLayoutConstraint.Relation = .equal,
         to constant: CGFloat
     ) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
 
         let matchesConstraint: (NSLayoutConstraint) -> Bool = {
             $0.relation == relation
@@ -48,13 +47,13 @@ extension UIView {
     ) {
         pin([attribute], to: view, padding: padding)
     }
-    
+
     func pin(
         _ attributes: [NSLayoutConstraint.Attribute],
         to view: UIView,
         padding: Double = 0
     ) {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
 
         view.addConstraints(
             attributes.map {
@@ -85,7 +84,7 @@ extension UIView {
                 anchorToAlightWith.constraint(
                     equalToSystemSpacingBelow: anchor,
                     multiplier: 0
-                )
+                ),
             ]
         )
     }

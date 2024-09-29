@@ -2,16 +2,14 @@ import Combine
 import UIKit
 
 protocol OrderDetailViewControllerDelegate: AnyObject {
-
     func orderDetailViewControllerCompletedPaymentFlow(_ viewController: OrderDetailViewController)
 }
 
 class OrderDetailViewController: UIViewController {
-
-    lazy private var tableView = UITableView()
-    lazy private var emptyMenuLabel = UILabel()
-    lazy private var checkoutButton = BigButton()
-    lazy private var totalPriceLabel = UITableViewFooterLabel()
+    private lazy var tableView = UITableView()
+    private lazy var emptyMenuLabel = UILabel()
+    private lazy var checkoutButton = BigButton()
+    private lazy var totalPriceLabel = UITableViewFooterLabel()
 
     private let viewModel: OrderDetailViewModel
 
@@ -20,7 +18,7 @@ class OrderDetailViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
 
     init(orderController: OrderController, paymentProcessor: PaymentProcessing) {
-        self.viewModel = OrderDetailViewModel(
+        viewModel = OrderDetailViewModel(
             orderController: orderController,
             paymentProcessor: paymentProcessor,
             // Leaving this empty and relying on a navigation delegate, which is more UIKit-style
@@ -29,12 +27,12 @@ class OrderDetailViewController: UIViewController {
         super.init(nibName: .none, bundle: .none)
     }
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override init(nibName _: String?, bundle _: Bundle?) {
         fatalError("This view controller has no `.xib` backing it. Use `init` instead.")
     }
 
     @available(*, unavailable, message: "Use `init` instead")
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("This view controller has no `.xib` backing it. Use `init` instead.")
     }
 
@@ -51,7 +49,7 @@ class OrderDetailViewController: UIViewController {
         viewModel.$alertToShow
             .compactMap { $0 }
             .map {
-                return AlertViewModel(
+                AlertViewModel(
                     title: $0.title,
                     message: $0.message,
                     buttonText: $0.buttonText,
@@ -114,8 +112,8 @@ class OrderDetailViewController: UIViewController {
                 style: .default,
                 handler: { [weak self] _ in
                     viewModel.buttonAction?()
-                    guard let self = self else { return }
-                    self.delegate?.orderDetailViewControllerCompletedPaymentFlow(self)
+                    guard let self else { return }
+                    delegate?.orderDetailViewControllerCompletedPaymentFlow(self)
                 }
             )
         )
@@ -125,16 +123,15 @@ class OrderDetailViewController: UIViewController {
 }
 
 extension OrderDetailViewController: UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func numberOfSections(in _: UITableView) -> Int {
+        1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.menuListItems.count
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        viewModel.menuListItems.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: .none)
 
         let item = viewModel.menuListItems[indexPath.row]
@@ -146,8 +143,7 @@ extension OrderDetailViewController: UITableViewDataSource {
 }
 
 extension OrderDetailViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return .none
+    func tableView(_: UITableView, willSelectRowAt _: IndexPath) -> IndexPath? {
+        .none
     }
 }

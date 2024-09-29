@@ -3,16 +3,15 @@ import Combine
 import XCTest
 
 class MenuFetcherTests: XCTestCase {
-
     var cancellables = Set<AnyCancellable>()
 
     func testWhenRequestSucceedsPublishesDecodedMenuItems() throws {
         let json = """
-[
-    { "name": "a name", "category": "a category", "spicy": true, "price": 1.0 },
-    { "name": "another name", "category": "a category", "spicy": true, "price": 2.0 }
-]
-"""
+        [
+            { "name": "a name", "category": "a category", "spicy": true, "price": 1.0 },
+            { "name": "another name", "category": "a category", "spicy": true, "price": 2.0 }
+        ]
+        """
         let data = try XCTUnwrap(json.data(using: .utf8))
         let menuFetcher = MenuFetcher(networkFetching: NetworkFetchingStub(returning: .success(data)))
 
@@ -42,7 +41,7 @@ class MenuFetcherTests: XCTestCase {
         menuFetcher.fetchMenu()
             .sink(
                 receiveCompletion: { completion in
-                    guard case .failure(let error) = completion else { return }
+                    guard case let .failure(error) = completion else { return }
                     XCTAssertEqual(error as? URLError, expectedError)
                     expectation.fulfill()
                 },

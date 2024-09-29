@@ -2,7 +2,6 @@
 import XCTest
 
 class OrderButtonViewModelTests: XCTestCase {
-
     func testWhenOrderIsEmptyDoesNotShowTotal() {
         let orderController = OrderController(orderStoring: OrderStoringFake())
         let viewModel = OrderButtonViewModel(orderController: orderController)
@@ -19,4 +18,3 @@ class OrderButtonViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.text, "Your Order $3.30")
     }
 }
-

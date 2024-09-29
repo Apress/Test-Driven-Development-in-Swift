@@ -1,14 +1,13 @@
 import SwiftUI
 
 struct OrderButton: View {
-
     let viewModel: ViewModel
 
     @State private(set) var showingDetail: Bool = false
 
     var body: some View {
         Button {
-            self.showingDetail.toggle()
+            showingDetail.toggle()
         } label: {
             Text(viewModel.text)
                 .font(Font.callout.bold())

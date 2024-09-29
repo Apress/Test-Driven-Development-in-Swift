@@ -1,5 +1,4 @@
 struct MenuItem {
-
     let category: String
     let name: String
     let spicy: Bool
@@ -7,6 +6,5 @@ struct MenuItem {
 }
 
 extension MenuItem: Identifiable {
-
     var id: String { name }
 }

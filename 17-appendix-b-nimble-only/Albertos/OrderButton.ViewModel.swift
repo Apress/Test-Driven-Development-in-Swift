@@ -1,9 +1,7 @@
 import Combine
 
 extension OrderButton {
-
     class ViewModel: ObservableObject {
-
         @Published private(set) var text = "Your Order"
 
         private(set) var cancellables = Set<AnyCancellable>()

@@ -3,7 +3,6 @@ import Combine
 import Foundation
 
 class MenuFetchingStub: MenuFetching {
-
     let result: Result<[MenuItem], Error>
 
     init(returning result: Result<[MenuItem], Error>) {
@@ -11,7 +10,7 @@ class MenuFetchingStub: MenuFetching {
     }
 
     func fetchMenu() -> AnyPublisher<[MenuItem], Error> {
-        return result.publisher
+        result.publisher
             // Use a delay to simulate the real world async behavior
             .delay(for: 0.1, scheduler: RunLoop.main)
             .eraseToAnyPublisher()

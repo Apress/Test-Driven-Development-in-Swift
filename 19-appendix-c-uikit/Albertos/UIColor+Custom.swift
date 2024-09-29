@@ -4,7 +4,6 @@ import UIKit
 //
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 extension UIColor {
-
     static var crimson: UIColor {
         UIColor(red: 220 / 255.0, green: 20 / 255.0, blue: 20 / 255.0, alpha: 1.0)
     }

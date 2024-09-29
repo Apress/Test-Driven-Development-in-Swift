@@ -1,11 +1,10 @@
 @testable import Albertos
 
 class OrderStoringFake: OrderStoring {
-
-    private var order: Order = Order(items: [])
+    private var order: Order = .init(items: [])
 
     func getOrder() -> Order {
-        return order
+        order
     }
 
     func updateOrder(_ order: Order) {
