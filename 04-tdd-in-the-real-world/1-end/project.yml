@@ -12,6 +12,12 @@ targets:
           UIRequiredDeviceCapabilities: [armv7]
     scheme:
       testTargets: [AlbertosTests]
+    settings:
+      ENABLE_USER_SCRIPT_SANDBOXING: NO
+    preBuildScripts:
+      - name: Format
+        script: swift run -c release --package-path ../../BuildTools swiftformat "$SRCROOT"
+        basedOnDependencyAnalysis: false
   AlbertosTests:
     target: Albertos
     type: bundle.unit-test
