@@ -1,0 +1,5 @@
+# Make indentation settings explicit, to override possible system-wide settings
+
+[*.swift]
+indent_style = space
+indent_size = 4
