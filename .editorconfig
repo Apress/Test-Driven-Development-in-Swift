@@ -1,5 +1,15 @@
-# Make indentation settings explicit, to override possible system-wide settings
+[*]
+insert_final_newline = true
+trim_trailing_whitespace = true
 
 [*.swift]
 indent_style = space
 indent_size = 4
+
+# Other properties Xcode 16 supports, as per https://developer.apple.com/documentation/xcode-release-notes/xcode-16-release-notes
+#
+# tab_width: a whole number defining the number of columns used to represent a tab character. This defaults to the value of indent_size and doesn't usually need to be specified.
+#
+# end_of_line: set to lf, cr, or crlf to control how line breaks are represented.
+#
+# max_line_length: set to a positive integer to force hard line wrapping after the amount of characters specified; set to 'off' to turn off this feature (use the editor settings).
