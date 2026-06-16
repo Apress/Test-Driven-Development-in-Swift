@@ -1,68 +1,98 @@
+import Foundation
+import Testing
 @testable import Albertos
-import XCTest
 
-class MenuItemTests: XCTestCase {
+@MainActor
+class `MenuItem Tests` {
 
-    // MARK: Inline example with Triangulation
+  @Test func `can decode from JSON (from string)`() throws {
+    let json = """
+      {
+        "name": "a name",
+        "category": "a category",
+        "spicy": true,
+        "price": 1.0
+      }
+    """
+    let data = try #require(json.data(using: .utf8))
 
-    func testWhenDecodedFromJSONDataHasAllTheInputPropertiesExample1() throws {
-        let json = #"{ "name": "a name", "category": "a category", "spicy": true, "price": 1.0 }"#
-        let data = try XCTUnwrap(json.data(using: .utf8))
+    let item = try JSONDecoder()
+      .decode(MenuItem.self, from: data)
 
-        let item = try JSONDecoder().decode(MenuItem.self, from: data)
+    #expect(item.name == "a name")
+    #expect(item.category == "a category")
+    #expect(item.spicy == true)
+    #expect(item.price == 1.0)
+  }
 
-        XCTAssertEqual(item.name, "a name")
-        XCTAssertEqual(item.category, "a category")
-        XCTAssertEqual(item.spicy, true)
-        XCTAssertEqual(item.price, 1.0)
-    }
+  @Test func `can decode from JSON (from file)`() throws {
+    let url = try #require(
+      Bundle(for: type(of: self))
+        .url(forResource: "menu_item", withExtension: "json")
+    )
+    let data = try Data(contentsOf: url)
 
-    func testWhenDecodedFromJSONDataHasAllTheInputPropertiesExample2() throws {
-        let json = #"{ "name": "another name", "category": "another category", "spicy": false, "price": 2.0 }"#
-        let data = try XCTUnwrap(json.data(using: .utf8))
+    let item = try JSONDecoder()
+      .decode(MenuItem.self, from: data)
 
-        let item = try JSONDecoder().decode(MenuItem.self, from: data)
+    #expect(item.name == "a name")
+    #expect(item.category == "a category")
+    #expect(item.spicy == true)
+    #expect(item.price == 1.0)
+  }
 
-        XCTAssertEqual(item.name, "another name")
-        XCTAssertEqual(item.category, "another category")
-        XCTAssertEqual(item.spicy, false)
-        XCTAssertEqual(item.price, 2.0)
-    }
+  @Test func `can decode from JSON (from fixture)`() throws {
+    let json = MenuItem.jsonFixture(
+      name: "tiramisú",
+      category: "desserts",
+      spicy: false,
+      price: 3.0
+    )
+    let data = try #require(json.data(using: .utf8))
 
-    // MARK: Inline example with helper function
+    let item = try JSONDecoder()
+      .decode(MenuItem.self, from: data)
 
-    func testWhenDecodedFromJSONDataHasAllTheInputProperties_HelperFunction() throws {
-        let json = MenuItem.jsonFixture(name: "a name", category: "a category", spicy: false, price: 1.0)
-        let data = try XCTUnwrap(json.data(using: .utf8))
+    #expect(item.name == "tiramisú")
+    #expect(item.category == "desserts")
+    #expect(item.spicy == false)
+    #expect(item.price == 3.0)
+  }
 
-        let item = try JSONDecoder().decode(MenuItem.self, from: data)
+  @Test func `decoding does not throw`() throws {
+    let json = """
+      {
+        "name": "a name",
+        "category": "a category",
+        "spicy": true,
+        "price": 1.0
+      }
+    """
+    let data = try #require(json.data(using: .utf8))
 
-        XCTAssertEqual(item.name, "a name")
-        XCTAssertEqual(item.category, "a category")
-        XCTAssertEqual(item.spicy, false)
-        XCTAssertEqual(item.price, 1.0)
-    }
+    _ = try JSONDecoder().decode(MenuItem.self, from: data)
+  }
 
-    // MARK: From JSON file example
+  @Test(.disabled("This is just an example of how decoding might fail"))
+  func `decoding works with nested object`() throws {
+    let json = """
+      {
+        "name": "a name",
+        "category": {
+          "name": "pastas",
+          "id": 123
+        },
+        "spicy": true,
+        "price": 1.0
+      }
+    """
+    let data = try #require(json.data(using: .utf8))
 
-    func testWhenDecodedFromJSONDataHasAllTheInputProperties_JSONFile() throws {
-        let data = try dataFromJSONFileNamed("menu_item")
+    let item = try JSONDecoder().decode(MenuItem.self, from: data)
 
-        let item = try JSONDecoder().decode(MenuItem.self, from: data)
-
-        XCTAssertEqual(item.name, "a name")
-        XCTAssertEqual(item.category, "a category")
-        XCTAssertEqual(item.spicy, true)
-        XCTAssertEqual(item.price, 1.0)
-    }
-
-    // MARK: Simpler check example
-    // Use this option if your models match the shape of the input JSON.
-
-    func testWhenDecodingFromJSONDataDoesNotThrow() throws {
-        let json = #"{ "name": "a name", "category": "a category", "spicy": true, "price": 1.0 }"#
-        let data = try XCTUnwrap(json.data(using: .utf8))
-
-        XCTAssertNoThrow(try JSONDecoder().decode(MenuItem.self, from: data))
-    }
+    #expect(item.name == "a name")
+    #expect(item.category == "a category")
+    #expect(item.spicy == true)
+    #expect(item.price == 1.0)
+  }
 }

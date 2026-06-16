@@ -1,4 +1,4 @@
-#!/usr/bin/env xcrun swift
+#!/usr/bin/env swift
 
 func main() {
     guard CommandLine.argc > 1 else {

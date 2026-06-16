@@ -1,17 +1,21 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class MenuRowViewModelTests: XCTestCase {
+struct `MenuRow ViewModel` {
 
-    func testWhenItemIsNotSpicyTextIsItemNameOnly() {
-        let item = MenuItem.fixture(name: "name", spicy: false)
-        let viewModel = MenuRow.ViewModel(item: item)
-        XCTAssertEqual(viewModel.text, "name")
-    }
+  @Test func `when item is not spicy text is name only`() {
+    let item = MenuItem.fixture(name: "name", spicy: false)
 
-    func testWhenItemIsSpicyTextIsItemNameWithChiliEmoji() {
-        let item = MenuItem.fixture(name: "name", spicy: true)
-        let viewModel = MenuRow.ViewModel(item: item)
-        XCTAssertEqual(viewModel.text, "name 🔥")
-    }
+    let viewModel = MenuRow.ViewModel(item: item)
+
+    #expect(viewModel.text == "name")
+  }
+
+  @Test func `when item is spicy text is name with emoji`() {
+    let item = MenuItem.fixture(name: "name", spicy: true)
+
+    let viewModel = MenuRow.ViewModel(item: item)
+
+    #expect(viewModel.text == "name 🔥")
+  }
 }

@@ -1,11 +1,15 @@
-import Combine
 import Foundation
 
 class MenuFetchingPlaceholder: MenuFetching {
-    func fetchMenu() -> AnyPublisher<[MenuItem], Error> {
-        return Future { $0(.success(menu)) }
-            // Use a delay to simulate async fetch
-            .delay(for: 0.5, scheduler: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
+
+  private let menu: [MenuItem]
+
+  init(menu: [MenuItem] = Albertos.menu) {
+    self.menu = menu
+  }
+
+  func fetchMenu() async throws -> [MenuItem] {
+    try await Task.sleep(for: .milliseconds(500))
+    return menu
+  }
 }

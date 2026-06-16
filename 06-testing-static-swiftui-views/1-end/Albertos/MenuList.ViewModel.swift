@@ -1,14 +1,15 @@
 extension MenuList {
 
-    struct ViewModel {
+  struct ViewModel {
 
-        let sections: [MenuSection]
+    let sections: [MenuSection]
 
-        init(
-            menu: [MenuItem],
-            menuGrouping: @escaping ([MenuItem]) -> [MenuSection] = groupMenuByCategory
-        ) {
-            self.sections = menuGrouping(menu)
-        }
+    init(
+      menu: [MenuItem],
+      menuGrouping: @escaping ([MenuItem]) -> [MenuSection]
+        = groupMenuByCategory
+    ) {
+      sections = menuGrouping(menu)
     }
+  }
 }

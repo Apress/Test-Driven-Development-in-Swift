@@ -1,4 +1,4 @@
-#!/usr/bin/env xcrun swift
+#!/usr/bin/env swift
 
 func fizzBuzz(_ number: Int) -> String {
     let divisibleBy3 = number % 3 == 0
@@ -7,7 +7,7 @@ func fizzBuzz(_ number: Int) -> String {
         case (false, false): return "\(number)"
         case (true, false): return "fizz"
         case (false, true): return "buzz"
-        case (true, true): return "fizz buzz"
+        case (true, true): return "fizz-buzz"
     }
 }
 
@@ -23,7 +23,7 @@ func testFizzBuzz() {
     test(value: fizzBuzz(1), matches: "1")
     test(value: fizzBuzz(3), matches: "fizz")
     test(value: fizzBuzz(5), matches: "buzz")
-    test(value: fizzBuzz(15), matches: "fizz buzz")
+    test(value: fizzBuzz(15), matches: "fizz-buzz")
 }
 
 func main() {
@@ -42,7 +42,5 @@ func main() {
     print(fizzBuzz(number))
 }
 
-// TODO: explain why we need to either run main or test? Alternatively, extract
-// the tests in a dedicated file?
 main()
 // testFizzBuzz()

@@ -1,47 +1,39 @@
+// This is just a placeholder screen for the moment.
 import SwiftUI
 
 struct OrderDetail: View {
 
-    let viewModel: ViewModel
+  let viewModel: ViewModel
 
-    var body: some View {
-        VStack(alignment: .center, spacing: 8) {
-            Text(viewModel.headerText)
-
-            // For the sake of keeping these examples small, we're making two compromises here:
-            //
-            // - There is logic in the view to inspect the menu list decide whether to show it or
-            //   use the fallback text if it's empty.
-            // - There is logic in the view to read the name from the `MenuItem`, instead of having
-            //   a dedicated view and ViewModel for the row.
-            //
-            // A better approach would be to have an enum describing the two mutually exclusive
-            // states, and switching on it to read either the text to show or the list of items.
-            if viewModel.menuListItems.isEmpty {
-                Text(viewModel.emptyMenuFallbackText).multilineTextAlignment(.center)
-            } else {
-                List(viewModel.menuListItems) { Text($0.name) }
-            }
-
-            if let total = viewModel.totalText {
-                Text(total)
-            }
-
-            if viewModel.shouldShowCheckoutButton {
-                Button {
-                    viewModel.checkout()
-                } label: {
-                    Text(viewModel.checkoutButtonText)
-                        .font(Font.callout.bold())
-                        .padding(12)
-                        .foregroundColor(.white)
-                        .background(Color.crimson)
-                        .cornerRadius(10.0)
-                }
-            }
-
-            Spacer()
+  var body: some View {
+    VStack(alignment: .center, spacing: 8) {
+      Text(viewModel.headerText)
+        .font(Font.title.bold())
+      List {
+        ForEach(viewModel.menuItems) { item in
+          Text(item.name)
         }
-        .padding(8)
+      }.listStyle(.inset)
+
+      Spacer()
+
+      if let totalPriceText = viewModel.totalPriceText {
+        Text(totalPriceText)
+      }
+
+      TextButton(
+        action: viewModel.checkout,
+        text: viewModel.checkoutButtonText
+      )
     }
+    .padding(16)
+  }
+}
+
+#Preview {
+  OrderDetail(
+    viewModel: .init(
+      orderController: OrderController()
+    )
+  )
 }

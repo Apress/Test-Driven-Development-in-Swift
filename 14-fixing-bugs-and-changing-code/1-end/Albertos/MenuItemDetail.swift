@@ -1,28 +1,29 @@
+import Combine
 import SwiftUI
 
 struct MenuItemDetail: View {
 
-    @ObservedObject private(set) var viewModel: ViewModel
+  @ObservedObject private(set) var viewModel: ViewModel
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(viewModel.name)
-                .fontWeight(.bold)
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text(viewModel.name)
+        .fontWeight(.bold)
 
-            if let spicy = viewModel.spicy {
-                Text(spicy)
-                    .font(Font.body.italic())
-            }
+      if let spicy = viewModel.spicy {
+        Text(spicy)
+          .font(Font.body.italic())
+      }
 
-            Text(viewModel.price)
+      Text(viewModel.price)
 
-            Button(viewModel.addOrRemoveFromOrderButtonText) {
-                viewModel.addOrRemoveFromOrder()
-            }
+      Button(viewModel.updateOrderButtonText) {
+        viewModel.toggleItemInOrder()
+      }
 
-            Spacer()
-        }
-        .padding(8)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+      Spacer()
     }
+    .padding(8)
+    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+  }
 }

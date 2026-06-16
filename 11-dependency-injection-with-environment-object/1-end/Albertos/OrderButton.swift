@@ -1,24 +1,21 @@
+// This is just a placeholder screen for the moment.
 import SwiftUI
 
 struct OrderButton: View {
 
-    let viewModel: ViewModel
+  let viewModel: ViewModel = ViewModel()
 
-    @State private(set) var showingDetail: Bool = false
+  @State private(set) var showingDetail: Bool = false
 
-    var body: some View {
-        Button {
-            self.showingDetail.toggle()
-        } label: {
-            Text(viewModel.text)
-                .font(Font.callout.bold())
-                .padding(12)
-                .foregroundColor(.white)
-                .background(Color.crimson)
-                .cornerRadius(10.0)
-        }
-        .sheet(isPresented: $showingDetail) {
-            OrderDetail(viewModel: .init())
-        }
+  var body: some View {
+    TextButton(
+      action: { showingDetail.toggle() },
+      text: viewModel.text
+    )
+    .sheet(isPresented: $showingDetail) {
+      NavigationStack {
+        OrderDetail()
+      }
     }
+  }
 }

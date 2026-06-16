@@ -1,10 +1,8 @@
 struct MenuItem {
-
-    let category: String
-    let name: String
+  let category: String
+  let name: String
 }
 
 extension MenuItem: Identifiable {
-
-    var id: String { name }
+  var id: String { name }
 }

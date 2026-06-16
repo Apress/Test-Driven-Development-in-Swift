@@ -1,6 +1,4 @@
-import Combine
-
 protocol PaymentProcessing {
 
-    func process(order: Order) -> AnyPublisher<Void, Error>
+  func process(order: Order) async throws
 }

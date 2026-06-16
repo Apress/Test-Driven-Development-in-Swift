@@ -1,42 +1,42 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class MenuItemDetailViewModelTests: XCTestCase {
+struct `MenuItemDetail ViewModel` {
 
-    func testNameIsItemName() {
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(name: "a name")).name,
-            "a name"
-        )
-    }
+  @Test func `reads name from item`() {
+    let item = MenuItem.fixture(name: "name")
+    let viewModel = MenuItemDetail.ViewModel(item: item)
 
-    func testWhenItemIsSpicyShowsSpicyMessage() {
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(spicy: true)).spicy,
-            "Spicy"
-        )
-    }
+    #expect(viewModel.name == "name")
+  }
 
-    func testWhenItemIsNotSpicyDoesNotShowSpicyMessage() {
-        XCTAssertNil(MenuItemDetail.ViewModel(item: .fixture(spicy: false)).spicy)
-    }
+  @Test func `when item is spicy, has spicy label`() {
+    let item = MenuItem.fixture(spicy: true)
+    let viewModel = MenuItemDetail.ViewModel(item: item)
 
-    func testPriceIsFormattedItemPrice() {
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 1.0)).price,
-            "$1.00"
-        )
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 2.5)).price,
-            "$2.50"
-        )
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 3.45)).price,
-            "$3.45"
-        )
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 4.123)).price,
-            "$4.12"
-        )
-    }
+    #expect(viewModel.spicy == "Spicy")
+  }
+
+  @Test func `when item is not spicy, has no spicy label`() {
+    let item = MenuItem.fixture(spicy: false)
+    let viewModel = MenuItemDetail.ViewModel(item: item)
+
+    #expect(viewModel.spicy == .none)
+  }
+
+  @Test(
+    arguments: zip(
+      [1.234, 2.345, 3.456],
+      ["$1.23", "$2.35", "$3.46"]
+    )
+  )
+  func `shows price with $ sign and rounds to nearest`(
+    price: Double,
+    expectedValue: String
+  ) {
+    let item = MenuItem.fixture(price: price)
+    let viewModel = MenuItemDetail.ViewModel(item: item)
+
+    #expect(viewModel.price == expectedValue)
+  }
 }

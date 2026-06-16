@@ -1,19 +1,20 @@
-@testable import Albertos
-import Combine
 import Foundation
+@testable import Albertos
 
-class NetworkFetchingStub: NetworkFetching {
+struct NetworkFetchingStub: NetworkFetching {
 
-    private let result: Result<Data, URLError>
+  private let result: Result<Data, Error>
 
-    init(returning result: Result<Data, URLError>) {
-        self.result = result
+  init(returning result: Result<Data, Error>) {
+    self.result = result
+  }
+
+  func load(_ request: URLRequest) async throws -> Data {
+    // Sleep to emulate the real world async behavior
+    try await Task.sleep(for: .milliseconds(100))
+    switch result {
+    case .success(let data): return data
+    case .failure(let error): throw error
     }
-
-    func load(_ request: URLRequest) -> AnyPublisher<Data, URLError> {
-        return result.publisher
-            // Use a delay to simulate the real world async behavior
-            .delay(for: 0.01, scheduler: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
+  }
 }

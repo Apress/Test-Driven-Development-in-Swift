@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "C8538A13-5BDB-427C-8F21-16F6380C75E7",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ProductsManagerTests",
+        "name" : "ProductsManagerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

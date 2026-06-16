@@ -1,11 +1,11 @@
 extension MenuRow {
 
-    struct ViewModel {
+  struct ViewModel {
 
-        let text: String
+    let text: String
 
-        init(item: MenuItem) {
-            text = item.spicy ? "\(item.name) 🔥" : item.name
-        }
+    init(item: MenuItem) {
+      text = item.spicy ? "\(item.name) 🔥" : item.name
     }
+  }
 }

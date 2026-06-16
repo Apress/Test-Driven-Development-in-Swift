@@ -7,6 +7,10 @@ extension MenuItem {
     name: String = "name",
     spicy: Bool = false
   ) -> MenuItem {
-    MenuItem(category: category, name: name, spicy: spicy)
+    return MenuItem(
+      category: category,
+      name: name,
+      spicy: spicy
+    )
   }
 }

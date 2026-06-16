@@ -1,45 +1,49 @@
-@testable import Albertos
 import Combine
-import XCTest
+import Testing
+@testable import Albertos
 
-class MenuListViewModelTests: XCTestCase {
+@MainActor class `MenuList ViewModel` {
 
-    var cancellables = Set<AnyCancellable>()
+  var cancellables = Set<AnyCancellable>()
 
-    func testWhenFetchingStartsPublishesEmptyMenu() {
-        let viewModel = MenuList.ViewModel(menuFetching: MenuFetchingPlaceholder())
+  @Test func `when fetching starts publishes empty array`() {
+    let viewModel = MenuList.ViewModel(
+      menuFetching: MenuFetchingPlaceholder()
+    )
 
-        XCTAssertTrue(viewModel.sections.isEmpty)
+    #expect(viewModel.sections.isEmpty)
+  }
+
+  @Test
+  func `when fetching succeeds publishes sections`() async {
+    var receivedMenu: [MenuItem]? = nil
+    let expectedSections = [MenuSection.fixture()]
+    let spyClosure: ([MenuItem]) -> [MenuSection] = { menu in
+      receivedMenu = menu
+      return expectedSections
     }
 
-    func testWhenFecthingSucceedsPublishesSectionsBuiltFromReceivedMenuAndGivenGroupingClosure() {
-        var receivedMenu: [MenuItem]?
-        let expectedSections = [MenuSection.fixture()]
+    let viewModel = MenuList.ViewModel(
+      menuFetching: MenuFetchingPlaceholder(),
+      menuGrouping: spyClosure
+    )
 
-        let spyClosure: ([MenuItem]) -> [MenuSection] = { items in receivedMenu = items
-            return expectedSections
-        }
-        let viewModel = MenuList.ViewModel(
-            menuFetching: MenuFetchingPlaceholder(),
-            menuGrouping: spyClosure
-        )
-        let expectation = XCTestExpectation(
-            description: "Publishes sections built from received menu and given grouping closure"
-        )
-        viewModel
-            .$sections
-            .dropFirst()
-            .sink { value in
-                // Ensure the grouping closure is called with the received menu
-                XCTAssertEqual(receivedMenu, menu)
-                // Ensure the published value is the result of the grouping closure
-                XCTAssertEqual(value, expectedSections)
-                expectation.fulfill()
-            }
-            .store(in: &cancellables)
+    var receivedValues: [[MenuSection]] = []
+    viewModel
+      .$sections
+      .dropFirst()
+      .sink { receivedValues.append($0) }
+      .store(in: &cancellables)
 
-        wait(for: [expectation], timeout: 1)
-    }
+    await viewModel.fetchMenu()
 
-    func testWhenFetchingFailsPublishesAnError() {}
+    // Grouping closure is called with the received menu
+    #expect(receivedMenu == menu)
+    // Only one event was received
+    #expect(receivedValues.count == 1)
+    // Published value is the result of the grouping closure
+    #expect(receivedValues[safe: 0] == expectedSections)
+  }
+
+  @Test func `when fetching fails publishes an error`() {}
 }

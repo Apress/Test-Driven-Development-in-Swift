@@ -1,16 +1,18 @@
-import Combine
 import HippoPayments
 
 extension HippoPaymentsProcessor: PaymentProcessing {
 
-    func process(order: Order) -> AnyPublisher<Void, Error> {
-        return Future { promise in
-            self.processPayment(
-                payload: order.hippoPaymentsPayload,
-                onSuccess: { promise(.success(())) },
-                onFailure: { promise(.failure($0)) }
-            )
+  func process(order: Order) async throws {
+    try await withCheckedThrowingContinuation { continuation in
+      processPayment(
+        payload: [:], // What should the value be?
+        onSuccess: {
+          continuation.resume()
+        },
+        onFailure: { error in
+          continuation.resume(throwing: error)
         }
-        .eraseToAnyPublisher()
+      )
     }
+  }
 }

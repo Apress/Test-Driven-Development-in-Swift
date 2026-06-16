@@ -1,48 +1,56 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class OrderControllerTests: XCTestCase {
+@MainActor
+class OrderControllerTests {
 
-    func testInitsWithEmptyOrder() {
-        let controller = OrderController()
+  @Test func `inits with empty order`() {
+    #expect(OrderController().order.items.isEmpty)
+  }
 
-        XCTAssertTrue(controller.order.items.isEmpty)
-    }
+  @Test func `when item not in order, returns false`() {
+    let controller = OrderController()
+    controller.addToOrder(item: .fixture(name: "a name"))
 
-    func testWhenItemNotInOrderReturnsFalse() {
-        let controller = OrderController()
-        controller.addToOrder(item: .fixture(name: "a name"))
+    #expect(
+      controller.isItemInOrder(.fixture(name: "another name"))
+      ==
+      false
+    )
+  }
 
-        XCTAssertFalse(controller.isItemInOrder(.fixture(name: "another name")))
-    }
+  @Test func `when item in order, returns true`() {
+    let controller = OrderController()
+    controller.addToOrder(item: .fixture(name: "a name"))
 
-    func testWhenItemInOrderReturnsTrue() {
-        let controller = OrderController()
-        controller.addToOrder(item: .fixture(name: "a name"))
+    #expect(
+      controller.isItemInOrder(.fixture(name: "a name"))
+      ==
+      true
+    )
+  }
 
-        XCTAssertTrue(controller.isItemInOrder(.fixture(name: "a name")))
-    }
+  @Test func `adding item updates order`() {
+    let controller = OrderController()
 
-    func testAddingItemUpdatesOrder() {
-        let controller = OrderController()
+    let item = MenuItem.fixture()
+    controller.addToOrder(item: item)
 
-        let item = MenuItem.fixture()
-        controller.addToOrder(item: item)
+    #expect(controller.order.items.count == 1)
+    #expect(controller.order.items.first == item)
+  }
 
-        XCTAssertEqual(controller.order.items.count, 1)
-        XCTAssertEqual(controller.order.items.first, item)
-    }
+  @Test func `removing item updates order`() {
+    let item = MenuItem.fixture(name: "a name")
+    let otherItem = MenuItem.fixture(name: "another name")
+    let controller = OrderController()
+    controller.addToOrder(item: item)
+    controller.addToOrder(item: otherItem)
+    #expect(controller.order.items.count == 2)
 
-    func testRemovingItemUpdatesOrder() {
-        let item = MenuItem.fixture(name: "a name")
-        let otherItem = MenuItem.fixture(name: "another name")
-        let controller = OrderController()
-        controller.addToOrder(item: item)
-        controller.addToOrder(item: otherItem)
+    controller.removeFromOrder(item: item)
 
-        controller.removeFromOrder(item: item)
-
-        XCTAssertEqual(controller.order.items.count, 1)
-        XCTAssertEqual(controller.order.items.first, otherItem)
-    }
+    #expect(controller.order.items.count == 1)
+    #expect(controller.order.items.first == otherItem)
+  }
 }
