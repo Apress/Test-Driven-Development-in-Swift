@@ -1,167 +1,219 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class OrderDetailViewModelTests: XCTestCase {
+@MainActor
+struct `OrderDetail ViewModel` {
 
-    let alertDismissDummy: () -> Void = {}
+  let dummyClosure: () -> Void = {}
 
-    func testWhenCheckoutButtonPressedStartsPaymentProcessingFlow() {
-        // Create an OrderController and add some items to it
-        let orderController = OrderController(orderStoring: OrderStoringFake())
-        orderController.addToOrder(item: .fixture(name: "name"))
-        orderController.addToOrder(item: .fixture(name: "other name"))
-        // Create the Spy
-        let paymentProcessingSpy = PaymentProcessingSpy()
+  @Test func `when order is empty does not expose total`() {
+    let viewModel = OrderDetail.ViewModel(
+      orderController: OrderController(
+        orderStoring: OrderStoringFake()
+      ),
+      paymentProcessor: PaymentProcessingDummy(),
+      onAlertDismiss: dummyClosure
+    )
 
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: paymentProcessingSpy,
-            onAlertDismiss: alertDismissDummy
-        )
+    #expect(viewModel.totalPriceText == .none)
+  }
 
-        viewModel.checkout()
+  @Test func `when order is not empty exposes total`() {
+    let orderController = OrderController(
+      orderStoring: OrderStoringFake()
+    )
+    orderController.addToOrder(item: .fixture(price: 1.5))
+    orderController.addToOrder(item: .fixture(price: 1.0))
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      onAlertDismiss: {}
+    )
 
-        XCTAssertEqual(paymentProcessingSpy.receivedOrder, orderController.order)
-    }
+    #expect(viewModel.totalPriceText == "Total: $2.50")
+  }
 
-    // Because testing with NSPredicate is slow, we use the same test scaffold to test two
-    // behaviors. When the payment succeeded the ViewModel updates its `alertToShow` property:
-    //
-    // - with the expected settings for the success confirmation
-    // - with the given callback to run as the button action
-    // - when the callback runs, the order is reset
-    func testWhenPaymentSucceedsUpdatesPropertyToShowConfirmationAlertThatCallsDimissCallback() {
-        // Arrange the input state with a valid order, one that has items
-        let orderController = OrderController(orderStoring: OrderStoringFake())
-        orderController.addToOrder(item: .fixture())
+  @Test func `when order is empty does not show items`() {
+    let viewModel = OrderDetail.ViewModel(
+      orderController: OrderController(
+        orderStoring: OrderStoringFake()
+      ),
+      onAlertDismiss: {}
+    )
 
-        // Set a spy value for the dismiss callback
-        var called = false
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingStub(returning: .success(())),
-            onAlertDismiss: { called = true }
-        )
+    #expect(viewModel.menuItems.isEmpty == true)
+  }
 
-        let predicate = NSPredicate { _, _ in viewModel.alertToShow != nil }
-        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: .none)
+  @Test func `when order is not empty shows item names`() {
+    let orderController = OrderController(
+      orderStoring: OrderStoringFake()
+    )
+    orderController.addToOrder(item: .fixture(name: "Item 1"))
+    orderController.addToOrder(item: .fixture(name: "Item 2"))
+    orderController.addToOrder(item: .fixture(name: "Item 3"))
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      onAlertDismiss: {}
+    )
 
-        viewModel.checkout()
+    #expect(viewModel.menuItems.count == 3)
+    #expect(viewModel.menuItems[safe: 0]?.name == "Item 1")
+    #expect(viewModel.menuItems[safe: 1]?.name == "Item 2")
+    #expect(viewModel.menuItems[safe: 2]?.name == "Item 3")
+  }
 
-        wait(for: [expectation], timeout: timeoutForPredicateExpectations)
+  @Test
+  func `checkout starts payment processing`() async throws {
+    let orderController = OrderController(
+      orderStoring: OrderStoringFake()
+    )
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingSpy()
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy,
+      onAlertDismiss: {}
+    )
 
-        XCTAssertEqual(viewModel.alertToShow?.title, "")
-        XCTAssertEqual(
-            viewModel.alertToShow?.message,
-            "The payment was successful. Your food will be with you shortly."
-        )
-        XCTAssertEqual(viewModel.alertToShow?.buttonText, "Ok")
+    await viewModel.checkout()
 
-        viewModel.alertToShow?.buttonAction?()
-        XCTAssertTrue(called)
+    #expect(
+      paymentProcessingSpy.receivedOrder
+      ==
+      orderController.order
+    )
+  }
 
-        // Verify the order has been reset
-        XCTAssertTrue(orderController.order.items.isEmpty)
-    }
+  @Test
+  func `payment ok shows confirmation alert`() async throws {
+    let orderController = OrderController(
+      orderStoring: OrderStoringFake()
+    )
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingStub(
+      returning: .success(())
+    )
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy,
+      onAlertDismiss: {}
+    )
 
-    // Because testing with NSPredicate is slow, we use the same test scaffold to test two
-    // behaviors. When the payment succeeded the ViewModel updates its `alertToShow` property:
-    //
-    // - with the expected settings for the success confirmation
-    // - with the given callback to run as the button action
-    func testWhenPaymentFailsUpdatesPropertyToShowErrorAlertThatCallsDismissCallback() {
-        var called = false
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(orderStoring: OrderStoringFake()),
-            paymentProcessor: PaymentProcessingStub(returning: .failure(TestError(id: 123))),
-            onAlertDismiss: { called = true }
-        )
+    await viewModel.checkout()
 
-        let predicate = NSPredicate { _, _ in viewModel.alertToShow != nil }
-        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: .none)
+    #expect(viewModel.shouldShowAlert == true)
+    #expect(
+      viewModel.alertViewModel?.titleText
+      ==
+      "Payment succeeded"
+    )
+    #expect(
+      viewModel.alertViewModel?.messageText
+      ==
+      "Your order will be with you shortly."
+    )
+    #expect(
+      viewModel.alertViewModel?.dismissButtonText
+      ==
+      "OK"
+    )
+  }
 
-        viewModel.checkout()
+  @Test
+  func `payment ok configures alert action`() async throws {
+    let orderController = OrderController(
+      orderStoring: OrderStoringFake()
+    )
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingStub(
+      returning: .success(())
+    )
+    var actionDidRun = false
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy,
+      onAlertDismiss: { actionDidRun = true }
+    )
 
-        wait(for: [expectation], timeout: timeoutForPredicateExpectations)
+    await viewModel.checkout()
 
-        XCTAssertEqual(viewModel.alertToShow?.title, "")
-        XCTAssertEqual(
-            viewModel.alertToShow?.message,
-            "There's been an error with your order. Please contact a waiter."
-        )
-        XCTAssertEqual(viewModel.alertToShow?.buttonText, "Ok")
+    viewModel.alertViewModel?.dismissButtonAction()
 
-        viewModel.alertToShow?.buttonAction?()
-        XCTAssertTrue(called)
-    }
+    #expect(actionDidRun)
+  }
 
-    func testWhenOrderIsEmptyShouldNotShowTotalAmount() {
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(orderStoring: OrderStoringFake()),
-            paymentProcessor: PaymentProcessingDummy(),
-            onAlertDismiss: alertDismissDummy
-        )
+  @Test
+  func `payment ko shows information alert`() async throws {
+    let orderController = OrderController(
+      orderStoring: OrderStoringFake()
+    )
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingStub(
+      returning: .failure(TestError(id: 1))
+    )
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy,
+      onAlertDismiss: {}
+    )
 
-        XCTAssertNil(viewModel.totalText)
-    }
+    await viewModel.checkout()
 
-    func testWhenOrderIsNonEmptyShouldShowTotalAmount() {
-        let orderController = OrderController(orderStoring: OrderStoringFake())
-        orderController.addToOrder(item: .fixture(price: 1.0))
-        orderController.addToOrder(item: .fixture(price: 2.3))
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingDummy(),
-            onAlertDismiss: alertDismissDummy
-        )
+    #expect(viewModel.shouldShowAlert == true)
+    #expect(
+      viewModel.alertViewModel?.titleText
+      ==
+      "Payment failed"
+    )
+    #expect(
+      viewModel.alertViewModel?.messageText
+      ==
+      "Please contact a waiter."
+    )
+    #expect(
+      viewModel.alertViewModel?.dismissButtonText
+      ==
+      "Dismiss"
+    )
+  }
 
-        XCTAssertEqual(viewModel.totalText, "Total: $3.30")
-    }
+  @Test
+  func `payment ok dismiss resets order`() async throws {
+    let orderController = OrderController()
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingStub(
+      returning: .success(())
+    )
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy,
+      onAlertDismiss: {}
+    )
 
-    func testWhenOrderIsEmptyHasNotItemNamesToShow() {
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(orderStoring: OrderStoringFake()),
-            paymentProcessor: PaymentProcessingDummy(),
-            onAlertDismiss: alertDismissDummy
-        )
+    await viewModel.checkout()
 
-        XCTAssertEqual(viewModel.menuListItems.count, 0)
-    }
+    viewModel.alertViewModel?.dismissButtonAction()
 
-    func testWhenOrderIsEmptyDoesNotShowCheckoutButton() {
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(orderStoring: OrderStoringFake()),
-            paymentProcessor: PaymentProcessingDummy(),
-            onAlertDismiss: alertDismissDummy
-        )
+    #expect(orderController.order.items.isEmpty)
+  }
 
-        XCTAssertFalse(viewModel.shouldShowCheckoutButton)
-    }
+  @Test
+  func `payment ko configures alert action`() async throws {
+    let orderController = OrderController()
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingStub(
+      returning: .failure(TestError(id: 1))
+    )
+    var actionDidRun = false
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy,
+      onAlertDismiss: { actionDidRun = true }
+    )
 
-    func testWhenOrderIsNonEmptyMenuListItemIsOrderItems() {
-        let orderController = OrderController(orderStoring: OrderStoringFake())
-        orderController.addToOrder(item: .fixture(name: "a name"))
-        orderController.addToOrder(item: .fixture(name: "another name"))
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingDummy(),
-            onAlertDismiss: alertDismissDummy
-        )
+    await viewModel.checkout()
 
-        XCTAssertEqual(viewModel.menuListItems.count, 2)
-        XCTAssertEqual(viewModel.menuListItems.first?.name, "a name")
-        XCTAssertEqual(viewModel.menuListItems.last?.name, "another name")
-    }
+    viewModel.alertViewModel?.dismissButtonAction()
 
-    func testWhenOrderIsNonEmptyShowsCheckoutButton() {
-        let orderController = OrderController(orderStoring: OrderStoringFake())
-        orderController.addToOrder(item: .fixture(name: "a name"))
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingDummy(),
-            onAlertDismiss: alertDismissDummy
-        )
-
-        XCTAssertTrue(viewModel.shouldShowCheckoutButton)
-    }
+    #expect(actionDidRun)
+  }
 }

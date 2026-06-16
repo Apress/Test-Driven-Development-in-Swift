@@ -1,87 +1,67 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class OrderDetailViewModelTests: XCTestCase {
+@MainActor
+struct `OrderDetail ViewModel` {
 
-    func testWhenCheckoutButtonPressedStartsPaymentProcessingFlow() {
-        // Create an OrderController and add some items to it
-        let orderController = OrderController()
-        orderController.addToOrder(item: .fixture(name: "name"))
-        orderController.addToOrder(item: .fixture(name: "other name"))
-        // Create the Spy
-        let paymentProcessingSpy = PaymentProcessingSpy()
+  @Test func `when order is empty does not expose total`() {
+    let viewModel = OrderDetail.ViewModel(
+      orderController: OrderController()
+    )
 
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: paymentProcessingSpy
-        )
+    #expect(viewModel.totalPriceText == .none)
+  }
 
-        viewModel.checkout()
+  @Test func `when order is not empty exposes total`() {
+    let orderController = OrderController()
+    orderController.addToOrder(item: .fixture(price: 1.5))
+    orderController.addToOrder(item: .fixture(price: 1.0))
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController
+    )
 
-        XCTAssertEqual(paymentProcessingSpy.receivedOrder, orderController.order)
-    }
+    #expect(viewModel.totalPriceText == "Total: $2.50")
+  }
 
-    func testWhenOrderIsEmptyShouldNotShowTotalAmount() {
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(),
-            paymentProcessor: PaymentProcessingSpy()
-        )
+  @Test func `when order is empty does not show items`() {
+    let viewModel = OrderDetail.ViewModel(
+      orderController: OrderController()
+    )
 
-        XCTAssertNil(viewModel.totalText)
-    }
+    #expect(viewModel.menuItems.isEmpty == true)
+  }
 
-    func testWhenOrderIsNonEmptyShouldShowTotalAmount() {
-        let orderController = OrderController()
-        orderController.addToOrder(item: .fixture(price: 1.0))
-        orderController.addToOrder(item: .fixture(price: 2.3))
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingSpy()
-        )
+  @Test func `when order is not empty shows item names`() {
+    let orderController = OrderController()
+    orderController.addToOrder(item: .fixture(name: "Item 1"))
+    orderController.addToOrder(item: .fixture(name: "Item 2"))
+    orderController.addToOrder(item: .fixture(name: "Item 3"))
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController
+    )
 
-        XCTAssertEqual(viewModel.totalText, "Total: $3.30")
-    }
+    #expect(viewModel.menuItems.count == 3)
+    #expect(viewModel.menuItems[safe: 0]?.name == "Item 1")
+    #expect(viewModel.menuItems[safe: 1]?.name == "Item 2")
+    #expect(viewModel.menuItems[safe: 2]?.name == "Item 3")
+  }
 
-    func testWhenOrderIsEmptyHasNotItemNamesToShow() {
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(),
-            paymentProcessor: PaymentProcessingSpy()
-        )
+  @Test
+  func `checkout starts payment processing`() async throws {
+    let orderController = OrderController()
+    orderController.addToOrder(item: .fixture())
+    let paymentProcessingSpy = PaymentProcessingSpy()
+    let viewModel = OrderDetail.ViewModel(
+      orderController: orderController,
+      paymentProcessor: paymentProcessingSpy
+    )
 
-        XCTAssertEqual(viewModel.menuListItems.count, 0)
-    }
+    await viewModel.checkout()
 
-    func testWhenOrderIsEmptyDoesNotShowCheckoutButton() {
-        let viewModel = OrderDetail.ViewModel(
-            orderController: OrderController(),
-            paymentProcessor: PaymentProcessingSpy()
-        )
-
-        XCTAssertFalse(viewModel.shouldShowCheckoutButton)
-    }
-
-    func testWhenOrderIsNonEmptyMenuListItemIsOrderItems() {
-        let orderController = OrderController()
-        orderController.addToOrder(item: .fixture(name: "a name"))
-        orderController.addToOrder(item: .fixture(name: "another name"))
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingSpy()
-        )
-
-        XCTAssertEqual(viewModel.menuListItems.count, 2)
-        XCTAssertEqual(viewModel.menuListItems.first?.name, "a name")
-        XCTAssertEqual(viewModel.menuListItems.last?.name, "another name")
-    }
-
-    func testWhenOrderIsNonEmptyShowsCheckoutButton() {
-        let orderController = OrderController()
-        orderController.addToOrder(item: .fixture(name: "a name"))
-        let viewModel = OrderDetail.ViewModel(
-            orderController: orderController,
-            paymentProcessor: PaymentProcessingSpy()
-        )
-
-        XCTAssertTrue(viewModel.shouldShowCheckoutButton)
-    }
+    #expect(
+      paymentProcessingSpy.receivedOrder
+      ==
+      orderController.order
+    )
+  }
 }

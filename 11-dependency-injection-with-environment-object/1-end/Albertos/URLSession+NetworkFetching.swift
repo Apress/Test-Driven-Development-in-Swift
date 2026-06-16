@@ -1,11 +1,9 @@
-import Combine
 import Foundation
 
 extension URLSession: NetworkFetching {
 
-    func load(_ request: URLRequest) -> AnyPublisher<Data, URLError> {
-        return dataTaskPublisher(for: request)
-            .map { $0.data }
-            .eraseToAnyPublisher()
-    }
+  func load(_ request: URLRequest) async throws -> Data {
+    let (data, _) = try await data(for: request)
+    return data
+  }
 }

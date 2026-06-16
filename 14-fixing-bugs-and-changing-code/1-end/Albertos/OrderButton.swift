@@ -2,32 +2,27 @@ import SwiftUI
 
 struct OrderButton: View {
 
-    @ObservedObject private(set) var viewModel: ViewModel
+  let viewModel: ViewModel
 
-    @State private(set) var showingDetail: Bool = false
+  @State private(set) var showingDetail: Bool = false
 
-    @EnvironmentObject var orderController: OrderController
-    @EnvironmentObject var paymentProcessor: PaymentProcessingProxy
+  @EnvironmentObject
+  private var orderController: OrderController
 
-    var body: some View {
-        Button {
-            self.showingDetail.toggle()
-        } label: {
-            Text(viewModel.text)
-                .font(Font.callout.bold())
-                .padding(12)
-                .foregroundColor(.white)
-                .background(Color.crimson)
-                .cornerRadius(10.0)
-        }
-        .sheet(isPresented: $showingDetail) {
-            OrderDetail(
-                viewModel: .init(
-                    orderController: orderController,
-                    paymentProcessor: paymentProcessor,
-                    onAlertDismiss: { self.showingDetail = false }
-                )
-            )
-        }
+  var body: some View {
+    TextButton(
+      action: { showingDetail.toggle() },
+      text: viewModel.text
+    )
+    .sheet(isPresented: $showingDetail) {
+      NavigationStack {
+        OrderDetail(
+          viewModel: .init(
+            orderController: orderController,
+            onAlertDismiss: { showingDetail.toggle() }
+          ),
+        )
+      }
     }
+  }
 }

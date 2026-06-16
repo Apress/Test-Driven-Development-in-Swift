@@ -1,38 +1,65 @@
 import Combine
+import Foundation
 import HippoPayments
 
+// This is just a placeholder to make working on the screen as
+// we progress with the chapters easier.
 extension OrderDetail {
 
-    struct ViewModel {
+  class ViewModel: ObservableObject {
 
-        let headerText = "Your Order"
-        let menuListItems: [MenuItem]
-        let emptyMenuFallbackText = "Add dishes to the order to see them here"
-        let totalText: String?
+    let headerText = "Your Order"
+    @Published private(set) var menuItems: [MenuItem] = []
+    @Published private(set) var totalPriceText: String? = .none
+    let checkoutButtonText = "Checkout"
 
-        let shouldShowCheckoutButton: Bool
-        let checkoutButtonText = "Checkout"
+    private let orderController: OrderController
+    private let paymentProcessor: PaymentProcessing
 
-        private let orderController: OrderController
-        private let paymentProcessor: PaymentProcessing
+    private var cancellables = Set<AnyCancellable>()
 
-        init(orderController: OrderController, paymentProcessor: PaymentProcessing) {
-            self.orderController = orderController
-            self.paymentProcessor = paymentProcessor
+    init(
+      orderController: OrderController,
+      // TODO: Using a default value for PaymentProcessing
+      // just to make the code compile while integrating.
+      // Remove once done.
+      paymentProcessor: PaymentProcessing =
+        HippoPaymentsProcessor(apiKey: "123ABC")
+    ) {
+      self.orderController = orderController
+      self.paymentProcessor = paymentProcessor
 
-            if orderController.order.items.isEmpty {
-                totalText = .none
-                shouldShowCheckoutButton = false
-            } else {
-                totalText = "Total: $\(String(format: "%.2f", orderController.order.total))"
-                shouldShowCheckoutButton = true
-            }
+      orderController.$order
+        .sink { [weak self] order in
+          guard let self else { return }
 
-            menuListItems = orderController.order.items
+          menuItems = order.items
+
+          if order.items.isEmpty {
+            totalPriceText = .none
+          } else {
+            let formatted = String(format: "%.2f", order.total)
+            totalPriceText = "Total: $\(formatted)"
+          }
         }
-
-        func checkout() {
-            paymentProcessor.process(order: orderController.order)
-        }
+        .store(in: &cancellables)
     }
+
+    func checkout() async {
+      do {
+        try await paymentProcessor.process(
+          order: orderController.order
+        )
+      } catch {
+        // TODO: Address the swallowed error
+        print(error)
+      }
+    }
+
+    func checkout() {
+      Task {
+        await checkout()
+      }
+    }
+  }
 }

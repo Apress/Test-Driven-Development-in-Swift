@@ -1,44 +1,59 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class MenuGroupingTests: XCTestCase {
+struct `Menu Grouping` {
 
-    func testMenuWithManyCategoriesReturnsAsManySectionsInReverseAlphabeticalOrder() {
-        let menu = [
-            MenuItem(category: "pastas", name: "a pasta"),
-            MenuItem(category: "drinks", name: "a drink"),
-            MenuItem(category: "pastas", name: "another pasta"),
-            MenuItem(category: "desserts", name: "a dessert"),
-        ]
+  @Test func `with many categories gives one section each`() {
+    let menu = [
+      MenuItem(category: "pastas", name: "a pasta"),
+      MenuItem(category: "drinks", name: "a drink"),
+      MenuItem(category: "pastas", name: "another pasta"),
+      MenuItem(category: "desserts", name: "a dessert"),
+    ]
 
-        let sections = groupMenuByCategory(menu)
+    let sections = groupMenuByCategory(menu)
 
-        XCTAssertEqual(sections.count, 3)
-        XCTAssertEqual(sections[safe: 0]?.category, "pastas")
-        XCTAssertEqual(sections[safe: 1]?.category, "drinks")
-        XCTAssertEqual(sections[safe: 2]?.category, "desserts")
-    }
+    #expect(sections.count == 3)
+    #expect(sections[safe: 0]?.category == "Pastas")
+    #expect(sections[safe: 1]?.category == "Drinks")
+    #expect(sections[safe: 2]?.category == "Desserts")
+  }
 
-    func testMenuWithOneCategoryReturnsOneSection() throws {
-        let menu = [
-            MenuItem(category: "pastas", name: "name"),
-            MenuItem(category: "pastas", name: "other name")
-        ]
+  @Test func `sorts by category in reverse alphabetical order`() {
+    let menu = [
+      MenuItem(category: "desserts", name: "a dessert"),
+      MenuItem(category: "starters", name: "a starter"),
+      MenuItem(category: "pastas", name: "a pasta"),
+    ]
 
-        let sections = groupMenuByCategory(menu)
+    let sections = groupMenuByCategory(menu)
 
-        XCTAssertEqual(sections.count, 1)
-        let section = try XCTUnwrap(sections.first)
-        XCTAssertEqual(section.items.count, 2)
-        XCTAssertEqual(section.items.first?.name, "name")
-        XCTAssertEqual(section.items.last?.name, "other name")
-    }
+    #expect(sections[safe: 0]?.category == "Starters")
+    #expect(sections[safe: 1]?.category == "Pastas")
+    #expect(sections[safe: 2]?.category == "Desserts")
+  }
 
-    func testEmptyMenuReturnsEmptySections() {
-        let menu = [MenuItem]()
+  @Test func `with one category gives one section`() throws {
+    let menu = [
+      MenuItem(category: "pastas", name: "name"),
+      MenuItem(category: "pastas", name: "other name")
+    ]
 
-        let sections = groupMenuByCategory(menu)
+    let sections = groupMenuByCategory(menu)
 
-        XCTAssertEqual(sections.count, 0)
-    }
+    #expect(sections.count == 1)
+    let section = try #require(sections.first)
+    let items = section.items
+    #expect(items.count == 2)
+    #expect(items.first?.name == "name")
+    #expect(items.last?.name == "other name")
+  }
+
+  @Test func `with empty menu gives empty sections`() {
+    let menu = [MenuItem]()
+
+    let sections = groupMenuByCategory(menu)
+
+    #expect(sections.isEmpty)
+  }
 }

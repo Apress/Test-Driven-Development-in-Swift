@@ -1,0 +1,27 @@
+root = true
+
+# Apply to all files
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+# In the interest of keeping code samples compact in the limited space of the
+# printed book, I reduced the indentation from the Apple default of 4 spaces to
+# just 2.
+[*.swift]
+indent_size = 2
+
+[{*.h,*.m}]
+indent_size = 4
+
+# Ruby specific rules
+[{*.rb,Fastfile,Gemfile}]
+indent_style = space
+indent_size = 2

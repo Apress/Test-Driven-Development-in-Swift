@@ -1,22 +1,25 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class MenuListViewModelTests: XCTestCase {
+@MainActor struct `MenuList ViewModel` {
 
-    func testCallsGivenGroupingFunction() {
-        var called = false
-        let inputSections = [MenuSection.fixture()]
-        let probeClosure: ([MenuItem]) -> [MenuSection] = { _ in
-            called = true
-            return inputSections
-        }
-
-        let viewModel = MenuList.ViewModel(menu: [.fixture()], menuGrouping: probeClosure)
-        let sections = viewModel.sections
-
-        // Check that the given closure was called
-        XCTAssertTrue(called)
-        // Check that the returned value was build with the closure
-        XCTAssertEqual(sections, inputSections)
+  @Test func `uses the given grouping function`() throws {
+    var receivedMenu: [MenuItem]? = nil
+    let expectedSections = [MenuSection.fixture()]
+    let spyClosure: ([MenuItem]) -> [MenuSection] = { menu in
+      receivedMenu = menu
+      return expectedSections
     }
+
+    let viewModel = MenuList.ViewModel(
+      menu: Albertos.menu, // See DummyMenu.swift
+      menuGrouping: spyClosure
+    )
+
+    // Assert the given closure is called with the given menu
+    let menu = try #require(receivedMenu)
+    #expect(menu == Albertos.menu)
+    // Assert the output of the given closure is used
+    #expect(viewModel.sections == expectedSections)
+  }
 }

@@ -1,10 +1,8 @@
 struct MenuSection {
-
-    let category: String
-    let items: [MenuItem]
+  let category: String
+  let items: [MenuItem]
 }
 
 extension MenuSection: Identifiable {
-
-    var id: String { category }
+  var id: String { category }
 }

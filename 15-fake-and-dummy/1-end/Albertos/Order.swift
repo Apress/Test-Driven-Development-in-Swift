@@ -1,8 +1,10 @@
 struct Order {
 
-    let items: [MenuItem]
+  let items: [MenuItem]
 
-    var total: Double { items.reduce(0) { $0 + $1.price } }
+  var total: Double { items.reduce(0) { $0 + $1.price } }
 }
 
-extension Order: Codable, Equatable {}
+extension Order: Equatable {}
+
+extension Order: Codable {}

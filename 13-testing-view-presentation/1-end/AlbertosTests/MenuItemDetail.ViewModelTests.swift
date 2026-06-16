@@ -1,84 +1,108 @@
+import Testing
 @testable import Albertos
-import XCTest
 
-class MenuItemDetailViewModelTests: XCTestCase {
+struct `MenuItemDetail ViewModel` {
 
-    func testWhenItemIsInOrderButtonSaysRemove() {
-        let item = MenuItem.fixture()
-        let orderController = OrderController()
-        orderController.addToOrder(item: item)
-        let viewModel = MenuItemDetail.ViewModel(item: item, orderController: orderController)
+  @Test func `reads name from item`() {
+    let item = MenuItem.fixture(name: "name")
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: OrderController()
+    )
 
-        let text = viewModel.addOrRemoveFromOrderButtonText
+    #expect(viewModel.name == "name")
+  }
 
-        XCTAssertEqual(text, "Remove from order")
-    }
+  @Test func `when item is spicy, has spicy label`() {
+    let item = MenuItem.fixture(spicy: true)
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: OrderController()
+    )
 
-    func testWhenItemIsNotInOrderButtonSaysAdd() {
-        let item = MenuItem.fixture()
-        let orderController = OrderController()
-        let viewModel = MenuItemDetail.ViewModel(item: item, orderController: orderController)
+    #expect(viewModel.spicy == "Spicy")
+  }
 
-        let text = viewModel.addOrRemoveFromOrderButtonText
+  @Test func `when item is not spicy, has no spicy label`() {
+    let item = MenuItem.fixture(spicy: false)
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: OrderController()
+    )
 
-        XCTAssertEqual(text, "Add to order")
-    }
+    #expect(viewModel.spicy == .none)
+  }
 
-    func testWhenItemIsInOrderButtonActionRemovesIt() {
-        let item = MenuItem.fixture()
-        let orderController = OrderController()
-        orderController.addToOrder(item: item)
-        let viewModel = MenuItemDetail.ViewModel(item: item, orderController: orderController)
+  @Test(
+    arguments: zip(
+      [1.234, 2.345, 3.456],
+      ["$1.23", "$2.35", "$3.46"]
+    )
+  )
+  func `shows price with $ sign and rounds to nearest`(
+    price: Double,
+    expectedValue: String
+  ) {
+    let item = MenuItem.fixture(price: price)
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: OrderController()
+    )
 
-        viewModel.addOrRemoveFromOrder()
+    #expect(viewModel.price == expectedValue)
+  }
 
-        XCTAssertFalse(orderController.order.items.contains { $0 == item })
-    }
+  @Test func `when item in order button says remove`() {
+    let item = MenuItem.fixture()
+    let orderController = OrderController()
+    orderController.addToOrder(item: item)
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: orderController
+    )
 
-    func testWhenItemIsNotInOrderButtonActionAddsIt() {
-        let item = MenuItem.fixture()
-        let orderController = OrderController()
-        let viewModel = MenuItemDetail.ViewModel(item: item, orderController: orderController)
+    let text = viewModel.updateOrderButtonText
 
-        viewModel.addOrRemoveFromOrder()
+    #expect(text == "Remove from order")
+  }
 
-        XCTAssertTrue(orderController.order.items.contains { $0 == item })
-    }
+  @Test func `when item not in order button says add`() {
+    let item = MenuItem.fixture()
+    let orderController = OrderController()
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: orderController
+    )
 
-    func testNameIsItemName() {
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(name: "a name"), orderController: OrderController()).name,
-            "a name"
-        )
-    }
+    let text = viewModel.updateOrderButtonText
 
-    func testWhenItemIsSpicyShowsSpicyMessage() {
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(spicy: true), orderController: OrderController()).spicy,
-            "Spicy"
-        )
-    }
+    #expect(text == "Add to order")
+  }
 
-    func testWhenItemIsNotSpicyDoesNotShowSpicyMessage() {
-        XCTAssertNil(MenuItemDetail.ViewModel(item: .fixture(spicy: false), orderController: OrderController()).spicy)
-    }
+  @Test func `when item in order button action removes it`() {
+    let item = MenuItem.fixture()
+    let orderController = OrderController()
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: orderController
+    )
 
-    func testPriceIsFormattedItemPrice() {
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 1.0), orderController: OrderController()).price,
-            "$1.00"
-        )
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 2.5), orderController: OrderController()).price,
-            "$2.50"
-        )
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 3.45), orderController: OrderController()).price,
-            "$3.45"
-        )
-        XCTAssertEqual(
-            MenuItemDetail.ViewModel(item: .fixture(price: 4.123), orderController: OrderController()).price,
-            "$4.12"
-        )
-    }
+    viewModel.toggleItemInOrder()
+
+    #expect(orderController.order.items.contains(item))
+  }
+
+  @Test func `when item not in order button action adds it`() {
+    let item = MenuItem.fixture()
+    let orderController = OrderController()
+    orderController.addToOrder(item: item)
+    let viewModel = MenuItemDetail.ViewModel(
+      item: item,
+      orderController: orderController
+    )
+
+    viewModel.toggleItemInOrder()
+
+    #expect(orderController.order.items.contains(item) == false)
+  }
 }

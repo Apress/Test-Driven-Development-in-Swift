@@ -1,76 +1,90 @@
 import Combine
+import Foundation
 import HippoPayments
-import SwiftUI
 
+// This is just a placeholder to make working on the screen as
+// we progress with the chapters easier.
 extension OrderDetail {
 
-    class ViewModel: ObservableObject {
+  class ViewModel: ObservableObject {
 
-        let headerText = "Your Order"
-        let menuListItems: [MenuItem]
-        let emptyMenuFallbackText = "Add dishes to the order to see them here"
-        let totalText: String?
+    let headerText = "Your Order"
+    @Published private(set) var menuItems: [MenuItem] = []
+    @Published private(set) var totalPriceText: String? = .none
+    let checkoutButtonText = "Checkout"
 
-        let shouldShowCheckoutButton: Bool
-        let checkoutButtonText = "Checkout"
+    @Published var shouldShowAlert: Bool = false
 
-        private let orderController: OrderController
-        private let paymentProcessor: PaymentProcessing
+    private(set) var alertViewModel: AlertViewModel?
 
-        private let onAlertDismiss: () -> Void
+    private let orderController: OrderController
+    private let paymentProcessor: PaymentProcessing
+    private let onAlertDismiss: () -> Void
 
-        @Published var alertToShow: Alert.ViewModel?
+    private var cancellables = Set<AnyCancellable>()
 
-        private var cancellables = Set<AnyCancellable>()
+    init(
+      orderController: OrderController,
+      // TODO: Using a default value for PaymentProcessing
+      // just to make the code compile while integrating.
+      // Remove once done.
+      paymentProcessor: PaymentProcessing =
+        HippoPaymentsProcessor(apiKey: "123ABC"),
+      onAlertDismiss: @escaping () -> Void
+    ) {
+      self.orderController = orderController
+      self.paymentProcessor = paymentProcessor
+      self.onAlertDismiss = onAlertDismiss
 
-        init(
-            orderController: OrderController,
-            paymentProcessor: PaymentProcessing,
-            onAlertDismiss: @escaping () -> Void
-        ) {
-            self.orderController = orderController
-            self.paymentProcessor = paymentProcessor
-            self.onAlertDismiss = onAlertDismiss
+      orderController.$order
+        .sink { [weak self] order in
+          guard let self else { return }
 
-            if orderController.order.items.isEmpty {
-                totalText = .none
-                shouldShowCheckoutButton = false
-            } else {
-                totalText = "Total: $\(String(format: "%.2f", orderController.order.total))"
-                shouldShowCheckoutButton = true
-            }
+          menuItems = order.items
 
-            menuListItems = orderController.order.items
+          if order.items.isEmpty {
+            totalPriceText = .none
+          } else {
+            let formatted = String(format: "%.2f", order.total)
+            totalPriceText = "Total: $\(formatted)"
+          }
         }
-
-        func checkout() {
-            paymentProcessor.process(order: orderController.order)
-                .sink(
-                    receiveCompletion: { [weak self] completion in
-                        guard case .failure = completion else { return }
-
-                        self?.alertToShow = Alert.ViewModel(
-                            title: "",
-                            message: "There's been an error with your order. Please contact a waiter.",
-                            buttonText: "Ok",
-                            buttonAction: self?.onAlertDismiss
-                        )
-                    },
-                    receiveValue: { [weak self] _ in
-                        self?.alertToShow = Alert.ViewModel(
-                            title: "",
-                            message: "The payment was successful. Your food will be with you shortly.",
-                            buttonText: "Ok",
-                            buttonAction: { [weak self] in
-                                guard let self = self else { return }
-
-                                self.orderController.resetOrder()
-                                self.onAlertDismiss()
-                            }
-                        )
-                    }
-                )
-                .store(in: &cancellables)
-        }
+        .store(in: &cancellables)
     }
+
+    func checkout() async {
+      do {
+        try await paymentProcessor.process(
+          order: orderController.order
+        )
+
+        shouldShowAlert = true
+        alertViewModel = AlertViewModel(
+          titleText: "Payment succeeded",
+          messageText: "Your order will be with you shortly.",
+          dismissButtonText: "OK",
+          dismissButtonAction: { [weak self] in
+            guard let self else { return }
+
+            self.orderController.reset()
+            self.onAlertDismiss()
+          }
+        )
+      } catch {
+        shouldShowAlert = true
+        alertViewModel = AlertViewModel(
+          titleText: "Payment failed",
+          messageText: "Please contact a waiter.",
+          dismissButtonText: "Dismiss",
+          dismissButtonAction: onAlertDismiss
+        )
+      }
+    }
+
+    func checkout() {
+      Task {
+        await checkout()
+      }
+    }
+  }
 }

@@ -1,47 +1,49 @@
 import Combine
+import Foundation
 
 extension MenuItemDetail {
 
-    class ViewModel: ObservableObject {
+  class ViewModel: ObservableObject {
 
-        let name: String
-        let spicy: String?
-        let price: String
+    private let item: MenuItem
 
-        @Published private(set) var addOrRemoveFromOrderButtonText = ""
+    let name: String
+    let spicy: String?
+    let price: String
 
-        private let item: MenuItem
-        private let orderController: OrderController
+    @Published
+    private(set) var updateOrderButtonText = "Remove from order"
 
-        private var cancellables = Set<AnyCancellable>()
+    private let orderController: OrderController
 
-        init(item: MenuItem, orderController: OrderController) {
-            self.item = item
-            self.orderController = orderController
+    private var cancellables = Set<AnyCancellable>()
 
-            name = item.name
-            spicy = item.spicy ? "Spicy" : .none
-            price = "$\(String(format: "%.2f", item.price))"
+    init(item: MenuItem, orderController: OrderController) {
+      self.item = item
+      name = item.name
+      spicy = item.spicy ? "Spicy" : .none
+      price = "$\(String(format: "%.2f", item.price))"
 
-            self.orderController.$order
-                .sink { [weak self] order in
-                    guard let self = self else { return }
+      self.orderController = orderController
 
-                    if (order.items.contains { $0 == self.item }) {
-                        self.addOrRemoveFromOrderButtonText = "Remove from order"
-                    } else {
-                        self.addOrRemoveFromOrderButtonText = "Add to order"
-                    }
-                }
-                .store(in: &cancellables)
+      orderController.$order.sink { [weak self] value in
+        guard let self else { return }
+
+        if value.items.contains(item) {
+          self.updateOrderButtonText = "Remove from order"
+        } else {
+          self.updateOrderButtonText = "Add to order"
         }
-
-        func addOrRemoveFromOrder() {
-            if (orderController.order.items.contains { $0 == item }) {
-                orderController.removeFromOrder(item: item)
-            } else {
-                orderController.addToOrder(item: item)
-            }
-        }
+      }
+      .store(in: &cancellables)
     }
+
+    func toggleItemInOrder() {
+      if orderController.order.items.contains(item) {
+        orderController.removeFromOrder(item: item)
+      } else {
+        orderController.addToOrder(item: item)
+      }
+    }
+  }
 }

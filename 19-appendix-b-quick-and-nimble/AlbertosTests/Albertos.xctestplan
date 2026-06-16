@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "B0BC206E-CDA2-4390-8DF5-2CA221AB1FBD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Albertos.xcodeproj",
+      "identifier" : "3FA6BBC62E85F6F000E34941",
+      "name" : "Albertos"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:Albertos.xcodeproj",
+        "identifier" : "3FA6BBD32E85F6F200E34941",
+        "name" : "AlbertosTests"
+      }
+    }
+  ],
+  "version" : 1
+}

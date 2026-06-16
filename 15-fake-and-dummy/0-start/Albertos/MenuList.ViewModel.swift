@@ -2,29 +2,32 @@ import Combine
 
 extension MenuList {
 
-    class ViewModel: ObservableObject {
+  class ViewModel: ObservableObject {
 
-        @Published private(set) var sections: Result<[MenuSection], Error> = .success([])
+    @Published
+    private(set) var sections: Result<[MenuSection], Error>
 
-        private var cancellables = Set<AnyCancellable>()
+    private let menuFetching: MenuFetching
+    private let menuGrouping: ([MenuItem]) -> [MenuSection]
 
-        init(
-            menuFetching: MenuFetching,
-            menuGrouping: @escaping ([MenuItem]) -> [MenuSection] = groupMenuByCategory
-        ) {
-            menuFetching
-                .fetchMenu()
-                .map(menuGrouping)
-                .sink(
-                    receiveCompletion: { [weak self] completion in
-                        guard case .failure(let error) = completion else { return }
-                        self?.sections = .failure(error)
-                    },
-                    receiveValue: { [weak self] value in
-                        self?.sections = .success(value)
-                    }
-                )
-                .store(in: &cancellables)
-        }
+    init(
+      menuFetching: MenuFetching,
+      menuGrouping: @escaping ([MenuItem]) -> [MenuSection]
+        = groupMenuByCategory
+    ) {
+      self.menuFetching = menuFetching
+      self.menuGrouping = menuGrouping
+      sections = .success(menuGrouping([]))
     }
+
+    func fetchMenu() async {
+      do {
+        sections = .success(
+          try await menuGrouping(menuFetching.fetchMenu())
+        )
+      } catch {
+        sections = .failure(error)
+      }
+    }
+  }
 }

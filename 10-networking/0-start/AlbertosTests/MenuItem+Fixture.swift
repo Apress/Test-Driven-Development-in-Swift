@@ -8,6 +8,11 @@ extension MenuItem {
     spicy: Bool = false,
     price: Double = 1.0
   ) -> MenuItem {
-    MenuItem(category: category, name: name, spicy: spicy, price: price)
+    return MenuItem(
+      category: category,
+      name: name,
+      spicy: spicy,
+      price: price
+    )
   }
 }
